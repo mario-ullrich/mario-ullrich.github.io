@@ -50,6 +50,9 @@
   .role{font-weight:400;font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--muted);margin:0 0 24px;}
   .hero-lede{max-width:650px;font-size:1.06rem;color:var(--ink-soft);margin:0 0 28px;}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .hero-actions--primary .btn{flex:1 1 clamp(10rem, 18vw, 14rem);}
+  .hero-actions--secondary{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+  .hero-actions--secondary .btn{flex:1 1 clamp(8rem, 15vw, 12rem);font-size:.82rem;padding:8px 16px;}
   .btn{font-size:.9rem;font-weight:500;padding:10px 20px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);background:#fff;transition:background .2s,color .2s;}
   .btn:hover{background:var(--accent-soft);text-decoration:none;color:var(--accent);}
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
@@ -217,10 +220,12 @@
       <div class="mono">MU</div>
     </div>
     <h1>Mario Ullrich</h1>
-    <div class="hero-actions">
+    <div class="hero-actions hero-actions--primary">
       <a class="btn" href="research.html" data-i18n="nav.research">Research</a>
       <a class="btn" href="publications.html" data-i18n="nav.pubs">Publications</a>
       <a class="btn" href="cv.html" data-i18n="nav.cv">CV</a>
+    </div>
+    <div class="hero-actions hero-actions--secondary">
       <a class="btn" href="teaching.html" data-i18n="nav.teaching">Teaching</a>
       <a class="btn" href="service.html" data-i18n="nav.service">Service</a>
       <a class="btn" href="press.html" data-i18n="nav.press">Press</a>
