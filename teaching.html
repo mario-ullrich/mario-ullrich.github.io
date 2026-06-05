@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching · Mario Ullrich</title>
+<meta name="description" content="Mario Ullrich, Senior Scientist at JKU Linz. Information-based complexity, approximation theory, high-dimensional problems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#ffffff;--bg-2:#f8f9fa;--ink:#202124;--ink-soft:#3c4043;--muted:#5f6368;--faint:#80868b;
+    --accent:#7c2b2b;--accent-2:#9c4a36;--accent-soft:rgba(124,43,43,.08);
+    --line:#dadce0;--line-soft:#e8eaed;
+    --sans:"Roboto",Arial,Helvetica,sans-serif;--maxw:1000px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--bg-2);}
+  body{margin:0;background:transparent;color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:var(--accent);color:#fff;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;}
+  .brand{font-weight:500;font-size:1.18rem;letter-spacing:.01em;color:var(--ink);}
+  .brand:hover{text-decoration:none;}
+  .brand span{color:var(--accent);}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  .nav-links{display:flex;gap:22px;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-size:.88rem;color:var(--ink-soft);position:relative;padding-bottom:3px;}
+  .nav-links a:hover{color:var(--accent);text-decoration:none;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--accent);transition:width .22s ease;}
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+  .lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.74rem;font-weight:500;}
+  .lang-toggle button{background:none;border:none;padding:5px 12px;cursor:pointer;color:var(--muted);font:inherit;}
+  .lang-toggle button.active{background:var(--accent);color:#fff;}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:4px;padding:7px 11px;font-size:.82rem;color:var(--ink);cursor:pointer;}
+
+  header.hero{position:relative;background:transparent;border-bottom:1px solid var(--line);}
+  .hero-bg{position:absolute;inset:0;opacity:.12;pointer-events:none;overflow:hidden;}
+  .hero-bg svg{width:100%;height:100%;display:block;}
+  .hero-bg circle{fill:var(--accent);}
+  .hero .wrap{position:relative;padding:64px 24px 56px;}
+  .eyebrow{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500;margin:0 0 14px;}
+  h1{font-weight:700;font-size:clamp(2.1rem,5vw,3.1rem);line-height:1.1;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink);}
+  .role{font-weight:400;font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--muted);margin:0 0 24px;}
+  .hero-lede{max-width:650px;font-size:1.06rem;color:var(--ink-soft);margin:0 0 28px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn{font-size:.9rem;font-weight:500;padding:10px 20px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);background:#fff;transition:background .2s,color .2s;}
+  .btn:hover{background:var(--accent-soft);text-decoration:none;color:var(--accent);}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:#fff;}
+  .hero-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px;font-size:.85rem;}
+  .hero-links a{color:var(--muted);}
+  .hero-links a:hover{color:var(--accent);}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line-soft);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{margin-bottom:28px;}
+  .sec-num{display:none;}
+  .sec-rule{display:none;}
+  .sec-head h2{font-weight:500;font-size:clamp(1.5rem,3vw,2.05rem);letter-spacing:-.01em;margin:0;padding-bottom:10px;position:relative;color:var(--ink);}
+  .sec-head h2::after{content:"";position:absolute;left:0;bottom:0;width:44px;height:3px;background:var(--accent);border-radius:2px;}
+
+  p{margin:0 0 16px;}
+  .lead{font-size:1.12rem;color:var(--ink-soft);}
+  .cols{display:grid;grid-template-columns:1.45fr 1fr;gap:44px;}
+  @media(max-width:780px){.cols{grid-template-columns:1fr;gap:28px;}}
+
+  .factcard{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 24px;box-shadow:0 1px 2px rgba(60,64,67,.06);}
+  .factcard h3{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 14px;}
+  .factrow{display:flex;gap:14px;padding:9px 0;border-top:1px solid var(--line-soft);font-size:.95rem;}
+  .factrow:first-of-type{border-top:none;}
+  .factrow .k{font-size:.78rem;letter-spacing:.02em;text-transform:uppercase;color:var(--muted);font-weight:500;min-width:78px;padding-top:2px;}
+  .factrow .v{color:var(--ink-soft);}
+
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0;padding:0;list-style:none;}
+  .tags li{font-size:.82rem;color:var(--ink-soft);background:var(--bg-2);border:1px solid var(--line);padding:5px 12px;border-radius:999px;}
+
+  .portrait{width:100%;max-width:230px;aspect-ratio:4/5;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 20px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;}
+  .portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+  .portrait .mono{font-weight:500;font-size:3rem;color:var(--accent);letter-spacing:.02em;}
+  .hero-portrait{max-width:128px;aspect-ratio:1/1;border-radius:50%;margin:0 0 22px;}
+  .hero-portrait .mono{font-size:2.4rem;}
+  .hero-grid{display:grid;grid-template-columns:1.4fr minmax(280px,340px);gap:48px;align-items:start;}
+  @media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:30px;}}
+  .hero-main h1{margin-bottom:20px;}
+  .glance-mini{padding:18px 20px;}
+  .glance-mini h3{margin-bottom:10px;}
+  .glance-mini .factrow{font-size:.85rem;padding:7px 0;}
+  .glance-mini .factrow .k{min-width:60px;font-size:.7rem;padding-top:2px;}
+
+  .micro-h{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:30px 0 12px;}
+
+  .timeline{margin:0;padding:0;list-style:none;}
+  .tl{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:9px 0;border-top:1px solid var(--line-soft);}
+  .tl:first-child{border-top:none;}
+  .tl .yr{font-size:.85rem;color:var(--accent);font-weight:500;padding-top:2px;}
+  .tl .body strong{font-weight:500;font-size:1.02rem;color:var(--ink);}
+  .tl .body .sub{display:block;color:var(--muted);font-size:.92rem;}
+  .tl .body .note{display:block;color:var(--ink-soft);font-size:.92rem;}
+  @media(max-width:560px){.tl{grid-template-columns:62px 1fr;gap:12px;}}
+
+  .pub-group-label{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:30px 0 12px;}
+  .pub-group-label:first-of-type{margin-top:0;}
+  ol.pubs{margin:0;padding:0;list-style:none;counter-reset:pub;}
+  ol.pubs li{counter-increment:pub;position:relative;padding:10px 0 10px 42px;border-top:1px solid var(--line-soft);}
+  ol.pubs li:first-child{border-top:none;}
+  ol.pubs li::before{content:counter(pub);position:absolute;left:0;top:11px;font-size:.82rem;color:var(--faint);font-weight:500;}
+  .pub-title{font-weight:500;font-size:1.02rem;color:var(--ink);}
+  .pub-meta{display:block;color:var(--muted);font-size:.9rem;margin-top:2px;}
+  .pub-links{margin-top:5px;font-size:.82rem;}
+  .pub-links a{margin-right:14px;}
+  .badge{display:inline-block;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:1px;font-weight:500;}
+  .archive-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .archive-links a{font-size:.85rem;border:1px solid var(--line);padding:9px 16px;border-radius:999px;color:var(--ink-soft);}
+  .archive-links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+  .fulllist{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.9rem;font-weight:500;background:var(--accent);color:#fff;padding:11px 22px;border-radius:6px;}
+  .fulllist:hover{background:var(--accent-2);color:#fff;text-decoration:none;}
+
+  .feature{background:var(--bg-2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:24px 26px;margin-bottom:28px;}
+  .feature h3{font-weight:600;font-size:1.2rem;margin:0 0 8px;color:var(--ink);}
+  .feature p{margin:0 0 8px;color:var(--ink-soft);font-size:1rem;}
+  .feature p:last-child{margin:0;}
+  .course-list{margin:0;padding:0;list-style:none;}
+  .course-list li{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:7px 0;border-top:1px solid var(--line-soft);font-size:.96rem;}
+  .course-list li:first-child{border-top:none;}
+  .course-list .term{font-size:.82rem;color:var(--muted);padding-top:2px;}
+  .course-list .title-i{color:var(--ink-soft);}
+
+  ul.bullets{margin:14px 0 0;padding:0;list-style:none;}
+  ul.bullets li{position:relative;padding:6px 0 6px 20px;font-size:1rem;color:var(--ink-soft);}
+  ul.bullets li::before{content:"";position:absolute;left:2px;top:13px;width:6px;height:6px;background:var(--accent);border-radius:50%;}
+  ul.bullets li strong{font-weight:600;color:var(--ink);}
+  a.res-ref{display:block;margin-top:3px;font-size:.8rem;color:var(--accent);}
+  a.res-ref:hover{color:var(--accent-2);}
+  .list-caption{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin:0 0 12px;}
+
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  @media(max-width:780px){.svc-grid{grid-template-columns:1fr;}}
+  .svc h3{font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 12px;}
+  .svc ul{margin:0;padding:0;list-style:none;}
+  .svc li{padding:6px 0;border-top:1px solid var(--line-soft);font-size:.93rem;color:var(--ink-soft);}
+  .svc li:first-child{border-top:none;}
+  .refeed{font-size:.92rem;color:var(--muted);line-height:1.7;}
+
+  #contact .cols{align-items:start;}
+  .contact-big{font-weight:500;font-size:1.3rem;color:var(--ink);}
+  .contact-big a{color:var(--accent);}
+
+  footer{padding:30px 0;text-align:center;}
+  footer .wrap{font-size:.82rem;color:var(--faint);}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+
+  @media(max-width:760px){
+    .nav-links{position:absolute;top:100%;right:0;left:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;}
+    .nav-links.open{max-height:520px;}
+    .nav-links li{border-top:1px solid var(--line-soft);}
+    .nav-links a{display:block;padding:14px 24px;}
+    .nav-links a::after{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  .subhero .wrap{padding:46px 24px 40px;}
+  .subhero h1{margin:0;}
+  .subhero .intro{color:var(--ink-soft);max-width:660px;margin:12px 0 0;}
+
+  .block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 30px;box-shadow:0 1px 2px rgba(60,64,67,.06);}
+  .block + .block, section + section .block{margin-top:0;}
+  .block .sec-head{margin-bottom:18px;}
+  .page-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;overflow:hidden;}
+  .page-bg svg{width:100%;height:100%;display:block;}
+  .page-bg circle{fill:var(--accent);}
+  .copy-email{margin-left:8px;font:inherit;font-size:.72rem;line-height:1;padding:3px 9px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);cursor:pointer;vertical-align:baseline;}
+  .copy-email:hover{border-color:var(--accent);color:var(--accent);}
+  .copy-email.copied{color:var(--accent);border-color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="page-bg" aria-hidden="true"><svg viewBox="0 0 100 150" preserveAspectRatio="xMidYMid slice"></svg></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Mario <span>Ullrich</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav.about">About</a></li>
+        <li><a href="research.html" data-i18n="nav.research">Research</a></li>
+        <li><a href="publications.html" data-i18n="nav.pubs">Publications</a></li>
+        <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
+        <li><a href="teaching.html" data-i18n="nav.teaching">Teaching</a></li>
+        <li><a href="service.html" data-i18n="nav.service">Service</a></li>
+        <li><a href="press.html" data-i18n="nav.press">Press</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="en">EN</button><button data-lang="de">DE</button>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">Menu</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero subhero" id="top">
+  <div class="wrap"><h1 data-i18n="teach.h">Teaching</h1></div>
+</header>
+
+<main>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="feature">
+        <h3 data-i18n="teach.feat.h">Mathematics for Artificial Intelligence 1–3</h3>
+        <p data-i18n="teach.feat.p1">I designed and built this three-semester lecture series for JKU's “Artificial Intelligence” degree: mathematics at the level of “Math for Physicists,” tuned to AI, and built for distance learning from the ground up. It was recognised with the <strong>Kepler Award for Excellence in Digital Teaching</strong> and nominated for the national <strong>Ars Docendi</strong> prize.</p>
+        <p data-i18n="teach.feat.p2">I also developed the Master's elective track <em>“Mathematical Foundation of AI,”</em> and from 2025 I am building the new <em>“Mathematics for Quantum Science 1–3”</em> series for the Quantum Science &amp; Technology programme (starting WS 2026).</p>
+      </div>
+        <div class="feature" style="margin-top:18px;">
+          <h3 data-i18n="teach.q.h">Mathematics for Quantum Science 1–3</h3>
+          <p data-i18n="teach.q.p">I am currently building this new three-semester series for the Quantum Science &amp; Technology programme (starting WS 2026), adapting the approach proven in Mathematics for AI to the language and needs of quantum science.</p>
+        </div>
+    </div>
+    <div class="reveal">
+      <h3 class="micro-h" style="margin-top:0;" data-i18n="teach.courses">Selected courses</h3>
+      <ul class="bullets">
+        <li class="title-i">Operator theory for Machine Learning</li>
+        <li class="title-i">Classical harmonic analysis</li>
+        <li class="title-i">Approximation theory for Machine Learning</li>
+        <li class="title-i">Mathematics for Artificial Intelligence 1–3</li>
+        <li class="title-i">Information-based complexity</li>
+        <li class="title-i">High-dimensional numerical integration</li>
+        <li class="title-i">Modern methods in Approximation theory</li>
+        <li class="title-i">Analysis 1 &amp; 2</li>
+        <li class="title-i">Complex analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated May 2026</span></div>
+</footer>
+
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" id="MathJax-script" async></script>
+<script>
+  var yrEl=document.getElementById('yr'); if(yrEl) yrEl.textContent=new Date().getFullYear();
+  var DE={
+    "nav.about":"Über mich","nav.research":"Forschung","nav.results":"Ergebnisse","nav.pubs":"Publikationen","nav.cv":"Lebenslauf",
+    "nav.teaching":"Lehre","nav.service":"Engagement","nav.press":"Presse","nav.contact":"Kontakt",
+    "hero.eyebrow":"Johannes Kepler Universität Linz",
+    "hero.role":"Johannes Kepler Universität Linz",
+    "hero.lede":"Ich untersuche die Komplexität hochdimensionaler Probleme: wie schwer numerische Integration und Approximation wirklich sind und wie weit <em>zufällige</em> Information im Vergleich zu optimalen, maßgeschneiderten Konstruktionen trägt. Der Übersichtsartikel, zu dem ich für <em>Acta Numerica</em> (2026) eingeladen wurde und den ich gemeinsam mit David Krieg verfasst habe, gibt davon einen umfassenden Überblick.",
+    "hero.btn.pubs":"Publikationen","hero.btn.cv":"Lebenslauf","hero.btn.contact":"Kontakt",
+    "about.h":"Über mich",
+    "about.lead":"Ich bin Mathematiker an der Johannes Kepler Universität Linz und arbeite an der Schnittstelle von numerischer Analysis, Information-based Complexity und hochdimensionaler Wahrscheinlichkeitstheorie.",
+    "about.p1":"Ich bin <strong>Senior Scientist sowohl am Institut für Analysis als auch am Department of Quantum Computing</strong> der JKU. Meine Habilitation habe ich 2023 in Linz abgeschlossen, nach einer Promotion in Jena bei Erich Novak.",
+    "about.p2":"Für meine Arbeiten wurde mir 2021 der <strong>Joseph F. Traub Prize</strong> für Leistungen in der Information-based Complexity verliehen, für Beiträge zur Numerik und Komplexität hochdimensionaler Integration und Approximation, insbesondere zur <em>Kraft zufälliger Information</em>.",
+    "about.p3":"2026 wurde ich <strong>eingeladen, einen Übersichtsartikel für <em>Acta Numerica</em></strong> (Band 35) zu schreiben, die führende Übersichtszeitschrift der numerischen Mathematik, den ich gemeinsam mit David Krieg verfasst habe. <em>„Approximation of functions: optimal sampling and complexity“</em> bündelt ein Jahrzehnt Arbeit zu Sampling Recovery und zur Lücke zwischen optimaler und zufälliger Information.",
+    "about.glance":"Auf einen Blick","about.k.title":"Titel","about.v.title":"Priv.-Doz. Dr.","about.k.pos":"Position",
+    "about.v.pos":"Senior Scientist, Institut für Analysis &amp; Department of Quantum Computing",
+    "about.k.aff":"Zugehörigkeit","about.v.aff":"Johannes Kepler Universität Linz, Österreich","about.k.ed":"Herausgeber",
+    "tag.ibc":"Information-based Complexity","tag.approx":"Approximationstheorie","tag.hd":"Hochdimensionale Probleme","tag.rand":"Zufällige Information","tag.harm":"Angewandte harmonische Analysis",
+    "research.h":"Forschung",
+    "research.lead":"Die Leitfrage meiner Forschung ist, wie schwer hochdimensionale Probleme wirklich sind: wie die intrinsische Schwierigkeit von numerischer Integration und Approximation mit der Dimension wächst, wann der Fluch der Dimension durchbrochen werden kann und wie weit <em>zufällige</em> Information im Vergleich zu optimalen, maßgeschneiderten Konstruktionen trägt.",
+    "research.cap":"Forschungsschwerpunkte",
+    "research.b1":"<strong>Komplexität hochdimensionaler Probleme</strong>: Tractability und der Fluch der Dimension",
+    "research.b2":"<strong>Kraft zufälliger Information</strong>: zufällige vs. optimale Daten für Approximation und Integration",
+    "research.b3":"<strong>Sampling Recovery</strong>: Funktionswerte, Least Squares und Diskretisierung",
+    "research.b4":"<strong>Numerische Integration</strong>: gemischte Glattheit, Frolov-Kubatur, Monte Carlo, angewandte Zahlentheorie",
+    "research.b5":"<strong>Diskrepanz &amp; Dispersion</strong> hochdimensionaler Punktmengen",
+    "research.b6":"<strong>Geometrie von Banachräumen</strong>, insb. s-Zahlen von Operatoren",
+    "research.b7":"<strong>Große Zufallsmatrizen</strong> &amp; asymptotische geometrische Analysis",
+    "research.b8":"<strong>Grundlagen des maschinellen Lernens</strong>: Approximation durch neuronale Netze, Lerntheorie",
+    "research.detail.h":"Im Detail",
+    "research.detail.p":"Komplexität hochdimensionaler Probleme · Kraft zufälliger Information · Geometrie von Banachräumen · asymptotische geometrische Analysis · große Zufallsmatrizen · angewandte Zahlentheorie · stochastische Prozesse.",
+    "research.preprints":"Aktuelle Preprints",
+    "results.h":"Wichtigste Ergebnisse",
+    "res.lead":"Einige Ergebnisse aus meiner Arbeit, die ich für die wichtigsten halte.",
+    "res.b1":"<strong>Optimale \\(L_2\\)-Approximation in reproduzierenden Kern-Hilberträumen.</strong> Funktionswerte sind fast so mächtig wie beliebige lineare Information, sofern die Approximationszahlen quadratsummierbar sind: gewichtete Least Squares an zufälligen Punkten erreichen die optimale Rate bis auf einen logarithmischen Oversampling-Faktor, und ein anschließendes Subsampling-Argument entfernt diesen Faktor und liefert eine scharfe Schranke für die Sampling-Zahlen. <a class=\"res-ref\" href=\"https://doi.org/10.1007/s10208-020-09481-w\">Krieg &amp; Ullrich, Found. Comput. Math. (2021)</a><a class=\"res-ref\" href=\"https://doi.org/10.1016/j.acha.2022.12.001\">Dolbeault, Krieg &amp; Ullrich, Appl. Comput. Harmon. Anal. (2023)</a>",
+    "res.b2":"<strong>Sampling Recovery in Maximum- und \\(L_p\\)-Norm.</strong> Optimale Rekonstruktion von Funktionen in der Maximumnorm (\\(L_\\infty\\)) und in allgemeinen \\(L_p\\)-Normen, mit scharfen Schranken über die Christoffel-Funktion, Sampling-Projektionen und Entropiezahlen. <a class=\"res-ref\" href=\"https://doi.org/10.1090/mcom/4148\">Krieg, Pozharska, T. Ullrich &amp; Ullrich, Math. Comp. (2025)</a><a class=\"res-ref\" href=\"https://doi.org/10.1016/j.jmaa.2025.129873\">Krieg, Pozharska, T. Ullrich &amp; Ullrich, J. Math. Anal. Appl. (2026)</a><a class=\"res-ref\" href=\"https://doi.org/10.1016/j.jco.2025.101992\">Ullrich, J. Complexity (2026)</a>",
+    "res.b3":"<strong>Einen Vektor aus wenigen Messungen lernen.</strong> Jeder Vektor in \\(\\mathbb{R}^m\\) lässt sich mit beliebiger Genauigkeit aus nur \\(\\lceil\\log_2(m+1)\\rceil+1\\) adaptiv gewählten stetigen Messungen rekonstruieren, mit Folgen für unendlichdimensionale Probleme. <a class=\"res-ref\" href=\"https://arxiv.org/abs/2412.06468\">Krieg, Novak &amp; Ullrich, arXiv:2412.06468 (2024)</a>",
+    "res.b4":"<strong>Approximation durch tiefe ReLU-Netze.</strong> Nichtlokale Techniken, die Approximationsraten für tiefe ReLU-Netze liefern: wir konstruieren eine Riesz-Basis „glatter“ Funktionen aus kleinen (tiefen) neuronalen Netzen. <a class=\"res-ref\" href=\"https://jmlr.org/papers/v27/25-0746.html\">Schneider, Ullrich &amp; Vybíral, J. Mach. Learn. Res. (2026)</a>",
+    "res.b5":"<strong>Die Kraft zufälliger Information.</strong> Eine Theorie, wann i.i.d. zufällige Information nahezu optimal ist und wann sie weit vom Optimum entfernt liegt, für Approximation und Integration im Worst-Case-Setting, mithilfe von Funktionswerten oder Gauß-Messungen. <a class=\"res-ref\" href=\"https://doi.org/10.1090/tran/8502\">Hinrichs, Krieg, Novak, Prochno &amp; Ullrich, Trans. Amer. Math. Soc. (2021)</a><a class=\"res-ref\" href=\"https://doi.org/10.1515/9783110635461-004\">Hinrichs, Krieg, Novak, Prochno &amp; Ullrich, Multivariate Algorithms &amp; IBC, De Gruyter (2020)</a><a class=\"res-ref\" href=\"https://doi.org/10.30970/ana.2023.1.88\">Sonnleitner &amp; Ullrich, J. Appl. Numer. Anal. (2023), Übersichtsartikel</a>",
+    "res.b6":"<strong>Adaption, Randomisierung und verrauschte Information.</strong> Wie stark adaptive, randomisierte und verrauschte nichtlineare Messungen deterministische lineare Information bei Approximationsproblemen verbessern können. <a class=\"res-ref\" href=\"https://doi.org/10.1017/fms.2025.10101\">Krieg, Novak &amp; Ullrich, Forum Math. Sigma (2025)</a><a class=\"res-ref\" href=\"https://doi.org/10.1007/s00041-026-10249-z\">Krieg, Novak, Plaskota &amp; Ullrich, J. Fourier Anal. Appl. (2026)</a>",
+    "res.b7":"<strong>Der Fluch der Dimension bei der Integration.</strong> Die numerische Integration glatter Funktionen unterliegt dem Fluch der Dimension, sowohl für klassische Glattheitsklassen als auch auf allgemeinen Gebieten, womit lang offene Fragen beantwortet wurden. <a class=\"res-ref\" href=\"https://doi.org/10.1016/j.jco.2018.08.003\">Hinrichs, Prochno &amp; Ullrich, J. Complexity (2019), Best Paper Award</a><a class=\"res-ref\" href=\"https://doi.org/10.1090/S0025-5718-2014-02855-X\">Hinrichs, Novak, Ullrich &amp; Woźniakowski, Math. Comp. (2014)</a>",
+    "res.b8":"<strong>Optimale Monte-Carlo-Integration.</strong> Ein randomisierter Algorithmus, der multivariate glatte Funktionen mit optimaler Rate integriert und jede deterministische Methode schlägt. <a class=\"res-ref\" href=\"https://doi.org/10.1137/16M1075557\">Ullrich, SIAM J. Numer. Anal. (2017)</a>",
+    "res.b9":"<strong>Frolov-Kubatur bei gemischter Glattheit.</strong> Eine detaillierte Analyse der Optimalität der Frolov-Kubatur, einer zahlentheoretischen Konstruktion auf Basis algebraischer Gitter. <a class=\"res-ref\" href=\"https://doi.org/10.1137/15M1014814\">T. Ullrich &amp; Ullrich, SIAM J. Numer. Anal. (2016)</a>",
+    "res.b10":"<strong>Schnelles Mischen von Swendsen–Wang.</strong> Bewiesen, dass die Swendsen–Wang-Dynamik in zwei Dimensionen schnell mischt, womit eine zentrale Frage zur Effizienz dieser Markov-Chain-Monte-Carlo-Methode geklärt wurde. <a class=\"res-ref\" href=\"https://doi.org/10.4064/dm502-0-1\">Ullrich, Dissertationes Math. (2014)</a>",
+    "pubs.h":"Ausgewählte Publikationen","pubs.most":"Wichtigste Arbeiten","pubs.full":"Vollständige Publikationsliste &nbsp;&rarr;",
+    "cv.h":"Lebenslauf","cv.appoint":"Anstellungen","cv.education":"Ausbildung","cv.awards":"Auszeichnungen &amp; Ehrungen","cv.talks":"Plenar- &amp; eingeladene Vorträge","cv.visits":"Ausgewählte Aufenthalte &amp; Programme",
+    "role.ss":"Senior Scientist","role.ss2":"Senior Scientist","cv.ana.perm":"Institut für Analysis, JKU Linz (unbefristet)",
+    "role.assoc":"Assoziierter Forscher","role.visprof":"Vertretungsprofessur (W3)","cv.jena.tn":"Theoretische Numerik, FSU Jena",
+    "role.postdoc":"Postdoc","role.postdoc2":"Postdoc","role.fellow":"Postdoc-Fellow",
+    "cv.hab":"venia docendi in Mathematik, JKU Linz. <em>„Random vs. optimal data for high-dimensional approximation.“</em>",
+    "cv.phd":"summa cum laude, FSU Jena (Betreuer: Erich Novak). <em>„Rapid mixing of Swendsen–Wang dynamics in two dimensions.“</em>",
+    "cv.dipl":"FSU Jena.",
+    "aw.acta":"Eingeladener Autor, Acta Numerica","aw.kepler":"Kepler Award für exzellente digitale Lehre","aw.kepler.s":"für „Mathematics for AI 1–3“",
+    "aw.ars":"Ars-Docendi-Nominierung","aw.ars.s":"Österreichischer Staatspreis für exzellente Lehre",
+    "aw.traub":"Joseph F. Traub Prize","aw.traub.s":"für Leistungen in der Information-based Complexity",
+    "aw.bp":"Journal of Complexity Best Paper Award","aw.yr":"IBC Young Researcher Award","aw.prom":"Promotionspreis des Dekans",
+    "talk.1":"<strong>FoCM 2026</strong>, Wien <span class=\"note\">zwei eingeladene Vorträge (IBC; Foundations of Data Science &amp; ML)</span>",
+    "talk.2":"<strong>BIRS-IMAG Workshop</strong>, Granada <span class=\"note\">Multivariate Splines for Inferential Data Science</span>",
+    "talk.3":"<strong>Quantum Harmonic Analysis 2026</strong>, Växjö",
+    "talk.4":"<strong>Plenarvortrag, CSASC 2026</strong>, Pilsen <span class=\"note\">nominiert von der Österr. Math. Gesellschaft</span>",
+    "talk.5":"<strong>Keynote</strong>, Nonlinear Approximation for High-Dimensional Problems (Cohen 60), Paris",
+    "talk.6":"<strong>Keynote, SIGMA'2024</strong>, CIRM Marseille",
+    "talk.7":"<strong>Plenarvortrag</strong>, Georgian Mathematical Union, Batumi",
+    "talk.8":"<strong>Eingeladener Vortrag (lang)</strong>, Newton-Institut-Programm, Cambridge",
+    "talk.9":"<strong>Plenarvortrag</strong>, Function Spaces, Analysis &amp; Approximation, Astana",
+    "talk.10":"<strong>Plenarvortrag</strong>, Function Spaces and Applications, Apolda",
+    "talk.11":"<strong>BIRS-CMO Workshop</strong> „Applied Functional Analysis“, Oaxaca",
+    "talk.12":"<strong>MASCOT-NUM</strong> „Optimal Sampling for Approximation“, IHP Paris",
+    "talk.13":"<strong>Plenarvortrag, MCQMC 2020</strong>, Oxford",
+    "talk.14":"<strong>Halbplenarvortrag</strong>, IBC-Workshop bei FoCM 2017, Barcelona",
+    "talk.15":"<strong>Eingeladen</strong>, Simons Institute for the Theory of Computing, Berkeley",
+    "visit.1":"Oxford QCTiP &amp; Vector Institute (Toronto) <span class=\"note\">Quantum Computing &amp; Learning</span>",
+    "visit.2":"Oberwolfach-Workshop „Computation and Learning in High Dimensions“; ESI „Quantum Harmonic Analysis“, Wien",
+    "visit.3":"Dagstuhl-Seminare zu „Algorithms and Complexity for Continuous Problems“",
+    "visit.4":"Newton-Institut-Programm „Approximation, sampling and compression in data science“, Cambridge",
+    "visit.5":"RICAM Special Semester „Multivariate Algorithms…“, Linz",
+    "teach.h":"Lehre","teach.feat.h":"Mathematik für Künstliche Intelligenz 1–3",
+    "teach.feat.p1":"Diese dreisemestrige Vorlesungsreihe habe ich für das JKU-Studium „Artificial Intelligence“ konzipiert und aufgebaut: Mathematik auf dem Niveau von „Mathematik für Physiker“, zugeschnitten auf KI und von Grund auf für Fernlehre gebaut. Sie wurde mit dem <strong>Kepler Award für exzellente digitale Lehre</strong> ausgezeichnet und für den <strong>Ars-Docendi</strong>-Staatspreis nominiert.",
+    "teach.feat.p2":"Außerdem habe ich den Master-Wahltrack <em>„Mathematical Foundation of AI“</em> entwickelt und baue ab 2025 die neue Reihe <em>„Mathematics for Quantum Science 1–3“</em> für das Studium Quantum Science &amp; Technology auf (ab WS 2026).",
+    "teach.courses":"Ausgewählte Lehrveranstaltungen",
+    "svc.h":"Engagement &amp; Community","svc.editorial":"Editorial Boards","svc.since":"seit","svc.since2":"seit","svc.since3":"seit","svc.from":"ab","svc.org":"Organisation","svc.committees":"Programmkomitees","svc.committees.p":"Mitglied der Programmkomitees von MCM 2027 (Passau), MCQMC 2026 (Edinburgh) und MCQMC 2024 (Waterloo).","svc.ref":"Gutachtertätigkeit",
+    "org.1":"Eingeladener Organisator, RICAM-Workshop <em>„Complexity Theory in Machine Learning“</em> (Special Semester „AI in Scientific Computing 2026“), Linz, Nov 2026",
+    "org.2":"Hauptorganisator, <em>„Approximation, Probability and Geometry in High Dimensions 2025“</em>, Bedlewo",
+    "org.3":"Minisymposium zur Information-based Complexity, Deutsche &amp; Österr. Math. Gesellschaft, Linz, 2025",
+    "org.5":"Eingeladener Sektionsorganisator „High-dimensional approximation“, ÖMG-Jahrestagung, Graz, 2023",
+    "org.6":"Eingeladenes Minisymposium „Random matrices and approximation using function values“, Curves &amp; Surfaces 2022, Arcachon",
+    "org.7":"Hauptorganisator, „Approximation and Geometry in High Dimensions 2020“, Bedlewo",
+    "org.8":"Sektionsorganisator „Discretization“, Approximation Theory &amp; Applications (Stechkin 100), Steklov-Institut, Moskau, 2020",
+    "org.9":"Sondersitzung „Random Points: Quality Criteria and Applications“, MCQMC 2020, Oxford",
+    "org.10":"Sondersitzung „Dispersion and Applications“, MCQMC 2018, Rennes",
+    "org.11":"Sondersitzung „Integration, Approximation and Discrepancy“, ICIAM 2015, Peking",
+    "org.12":"Sondersitzung „Tractability of integration and approximation“ (mit A. Hinrichs), MCQMC 2014, Leuven",
+    "svc.ref.p":"Regelmäßiger Gutachter für: Foundations of Computational Mathematics, Numerische Mathematik, Mathematics of Computation, SIAM J. Numerical Analysis, SIAM J. Scientific Computing, SIAM Review, SIAM J. Discrete Mathematics, J. Approximation Theory, Constructive Approximation, J. Complexity, J. Functional Analysis, Analysis Mathematica, Advances in Computational Mathematics, Advances in Operator Theory, Probability Theory and Related Fields, Ann. Inst. Henri Poincaré (Probab. Stat.), Communications in Mathematical Physics, J. Statistical Physics, Random Structures &amp; Algorithms, Mathematika, Applied Numerical Mathematics, Mathematics and Computers in Simulation, Electronic Communications in Probability, IEEE Open J. Signal Processing, Pure and Applied Functional Analysis, Scandinavian J. Statistics, SMAI J. Computational Mathematics, Bulletin of the Brazilian Mathematical Society sowie Transactions &amp; Proceedings of the AMS.<br>Tagungsbände: Dagstuhl, FOCS, MCM, MCQMC, RANDOM, SODA, STOC.",
+    "press.h":"Presse &amp; Medien",
+    "press.5":"<a href=\"https://www.nachrichten.at/campus\">JKU-Mathematiker steigt in Königsklasse der Forschung auf</a>: zur Einladung, in Acta Numerica zu publizieren (OÖNachrichten, 2025)",
+    "press.6":"<a href=\"https://www.jku.at/news-events/news/detail/news/best-bachelor-thesis-award-fuer-den-ai-studiengang-verliehen/\">Best Bachelor Thesis Award im AI-Studiengang</a>: für zwei meiner Studierenden, Bereich „Mathematical Foundation of AI“ (2024)",
+    "press.1":"<a href=\"https://www.jku.at/news-events/news/detail/news/jku-mathematiker-ausgezeichnet-1/\">JKU Mathematiker ausgezeichnet</a>: zum Joseph F. Traub Prize 2021",
+    "press.7":"<a href=\"https://epaper.falter.at/issue.act?issueId=965596&amp;issueMutation=heureka&amp;issueDate=20221026&amp;region=falter\">Smart Data statt Big Data</a>: Artikel im Wissenschaftsmagazin Heureka (Falter Verlag, 2022)",
+    "press.2":"<a href=\"https://www.nachrichten.at/oberoesterreich/landsleute/er-ordnet-mit-mathematik-den-zufall;art209551,3687498\">Er ordnet mit Mathematik den Zufall</a>: „Oberösterreicher des Tages“, Oberösterreichische Nachrichten",
+    "press.3":"<a href=\"https://www.jku.at/medizinische-fakultaet/news-events/detail/news/kepler-awards-was-gute-lehre-ausmacht-3/\">Kepler Awards: Was gute Lehre ausmacht</a>: Interview zum Kepler Award für digitale Lehre",
+    "press.4":"<a href=\"https://gutelehre.at/projekt/mathematics-for-artificial-intelligence\">Mathematics for Artificial Intelligence</a>: vorgestellt als Beispiel guter Lehre (Ars Docendi)",
+    "contact.h":"Kontakt","contact.write":"Schreiben Sie mir an",
+    "contact.addr":"Adresse","contact.inst":"Institut für Analysis","contact.uni":"Johannes Kepler Universität Linz","contact.country":"Österreich",
+    "footer.uni":"Johannes Kepler Universität Linz","footer.upd":"Zuletzt aktualisiert Mai 2026",
+    "news.h":"Neuigkeiten",
+    "news.1":"Eingeladener Übersichtsartikel für <em>Acta Numerica</em> (Band 35), gemeinsam mit David Krieg, erscheint demnächst.",
+    "news.2":"Neuer Artikel im <em>Journal of Machine Learning Research</em> zur Approximationskraft tiefer ReLU-Netze.",
+    "news.3":"Aufnahme in das Editorial Board von <em>Communications in Mathematics</em>.",
+    "news.4":"Aufbau der neuen Vorlesungsreihe <em>Mathematics for Quantum Science 1–3</em> (ab WS 2026).",
+    "news.5":"Aufnahme in das Editorial Board des <em>Journal of Machine Learning Research</em>.",
+    "teach.q.h":"Mathematics for Quantum Science 1–3",
+    "teach.q.p":"Diese neue dreisemestrige Reihe für das Studium Quantum Science &amp; Technology baue ich derzeit auf (ab WS 2026) und übertrage dabei den in „Mathematics for AI“ bewährten Ansatz auf die Sprache und Anforderungen der Quantenwissenschaft.",
+    "pubs.page":"Publikationen",
+    "pubs.intro":"Begutachtete Zeitschriftenartikel, Preprints und Abschlussarbeiten. Den aktuellsten Stand finden Sie in den externen Archiven unten.",
+    "h.pre":"Eingereichte Manuskripte &amp; Preprints","n.pre":"Neueste zuerst",
+    "h.ref":"Begutachtete Zeitschriftenartikel","n.ref":"Umgekehrt chronologisch",
+    "h.theses":"Abschlussarbeiten",
+    "th.1":"Habilitationsschrift, JKU Linz, 2023","th.2":"Dissertation, FSU Jena, 2012","th.3":"Diplomarbeit (auf Deutsch), FSU Jena, 2009"
+  };
+  var EN={};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){EN[el.getAttribute('data-i18n')]=el.innerHTML;});
+  function getLang(){
+    var p=new URLSearchParams(location.search).get('lang');
+    if(p==='de'||p==='en')return p;
+    try{var s=localStorage.getItem('lang');if(s)return s;}catch(e){}
+    return 'en';
+  }
+  function setLang(l){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      var v=(l==='de'?(DE[k]!=null?DE[k]:EN[k]):EN[k]);
+      if(v!=null)el.innerHTML=v;
+    });
+    document.documentElement.lang=l;
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===l);});
+    try{localStorage.setItem('lang',l);}catch(e){}
+    try{var u=new URL(location);u.searchParams.set('lang',l);history.replaceState(null,'',u);}catch(e){}
+    document.querySelectorAll('.nav-links a, a.brand').forEach(function(a){
+      var h=a.getAttribute('href'); if(!h) return; var base=h.split('?')[0];
+      if(/\.html$/.test(base)) a.setAttribute('href', base+'?lang='+l);
+    });
+    if(window.MathJax&&window.MathJax.typesetPromise)window.MathJax.typesetPromise();
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});
+  });
+  setLang(getLang());
+
+  var toggle=document.querySelector('.nav-toggle'),links=document.querySelector('.nav-links');
+  if(toggle&&links){
+    toggle.addEventListener('click',function(){links.classList.toggle('open');});
+    links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});});
+  }
+
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  var path=(location.pathname.split('/').pop()||'index.html'); if(path==='')path='index.html';
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    if(a.getAttribute('href').split('?')[0]===path)a.classList.add('active');
+  });
+
+  /* random point-set background, regenerated every load */
+  (function(){
+    var ns='http://www.w3.org/2000/svg';
+    document.querySelectorAll('.hero-bg svg, .page-bg svg').forEach(function(svg){
+      while(svg.firstChild)svg.removeChild(svg.firstChild);
+      for(var i=0;i<74;i++){
+        var c=document.createElementNS(ns,'circle');
+        c.setAttribute('cx',(Math.random()*100).toFixed(2));
+        c.setAttribute('cy',(Math.random()*100).toFixed(2));
+        c.setAttribute('r',(0.3+Math.random()*0.55).toFixed(2));
+        svg.appendChild(c);
+      }
+    });
+  })();
+
+  document.querySelectorAll('a.email').forEach(function(a){try{var e=atob(a.getAttribute('data-eml'));a.setAttribute('href','mailto:'+e);if(!a.textContent.trim())a.textContent=e;}catch(x){}});
+  document.querySelectorAll('.copy-email').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var a=btn.parentNode.querySelector('a.email'); var e='';
+      try{e=atob(a.getAttribute('data-eml'));}catch(x){e=a?a.textContent:'';}
+      var lbl=btn.textContent;
+      var ok=function(){btn.textContent='Copied';btn.classList.add('copied');setTimeout(function(){btn.textContent=lbl;btn.classList.remove('copied');},1200);};
+      var fb=function(){var sx=window.pageXOffset,sy=window.pageYOffset;var ta=document.createElement('textarea');ta.value=e;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:none;opacity:0;';document.body.appendChild(ta);ta.select();try{ta.setSelectionRange(0,e.length);}catch(x){}try{document.execCommand('copy');}catch(x){}document.body.removeChild(ta);window.scrollTo(sx,sy);ok();};
+      if(navigator.clipboard&&navigator.clipboard.writeText&&window.isSecureContext){navigator.clipboard.writeText(e).then(ok,fb);}else{fb();}
+    });
+  });
+</script>
+</body>
+</html>
