@@ -137,12 +137,13 @@
   .course-list li:first-child{border-top:none;}
   .course-list .term{font-size:.82rem;color:var(--muted);padding-top:2px;}
   .course-list .title-i{color:var(--ink-soft);}
+  .course-list li a{justify-self:start;}
 
   ul.bullets{margin:14px 0 0;padding:0;list-style:none;}
   ul.bullets li{position:relative;padding:6px 0 6px 20px;font-size:1rem;color:var(--ink-soft);}
   ul.bullets li::before{content:"";position:absolute;left:2px;top:13px;width:6px;height:6px;background:var(--accent);border-radius:50%;}
   ul.bullets li strong{font-weight:600;color:var(--ink);}
-  a.res-ref{display:block;margin-top:3px;font-size:.8rem;color:var(--accent);}
+  a.res-ref{display:block;width:fit-content;margin-top:3px;font-size:.8rem;color:var(--accent);}
   a.res-ref:hover{color:var(--accent-2);}
   .list-caption{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin:0 0 12px;}
 
@@ -427,6 +428,10 @@
       var fb=function(){var sx=window.pageXOffset,sy=window.pageYOffset;var ta=document.createElement('textarea');ta.value=e;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;padding:0;border:none;opacity:0;';document.body.appendChild(ta);ta.select();try{ta.setSelectionRange(0,e.length);}catch(x){}try{document.execCommand('copy');}catch(x){}document.body.removeChild(ta);window.scrollTo(sx,sy);ok();};
       if(navigator.clipboard&&navigator.clipboard.writeText&&window.isSecureContext){navigator.clipboard.writeText(e).then(ok,fb);}else{fb();}
     });
+  });
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href')||'';
+    if(/^https?:\/\//i.test(h) && a.host!==location.host){a.target='_blank';a.rel='noopener noreferrer';}
   });
 </script>
 </body>
