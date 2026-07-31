@@ -258,8 +258,28 @@
   <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated May 2026</span></div>
 </footer>
 
-<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'}};</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" id="MathJax-script" async></script>
+<script>
+/* Load MathJax only on pages that actually contain TeX math, so math-free
+   pages never download the (~1 MB) library. We scan the page text for the
+   inline and display math delimiters (backslash-paren and backslash-bracket),
+   ignoring <script> contents so this check can't match its own source.
+   tex-chtml is MathJax's minimal bundle: TeX input and HTML output, no
+   MathML input, which is all this site uses. */
+(function () {
+  if (!document.body) return;
+  var content = document.body.innerHTML.replace(/<script[\s\S]*?<\/script>/gi, '');
+  if (content.indexOf('\\(') === -1 && content.indexOf('\\[') === -1) return;
+  window.MathJax = {
+    tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+    options: { skipHtmlTags: ['script', 'style', 'textarea', 'pre', 'code'] }
+  };
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js';
+  s.id = 'MathJax-script';
+  s.async = true;
+  document.head.appendChild(s);
+})();
+</script>
 <script>
   var yrEl=document.getElementById('yr'); if(yrEl) yrEl.textContent=new Date().getFullYear();
   var DE={
