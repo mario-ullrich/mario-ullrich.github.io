@@ -52,9 +52,6 @@ block, so a change to the shared design has to be repeated in all of them.
 - **News.** The list on `index.html` uses `class="course-list news"`. The `news`
   variant only narrows the left column, which holds a year there, while the press
   page reuses plain `course-list` for its wider source labels.
-- **Link rows.** The dots between the links in `.hero-links` come from CSS
-  (`a:not(:last-child)::after`), not from the markup, so the row wraps wherever
-  the window width demands and a dot never begins a line.
 - **Fading in.** Elements with `class="reveal"` fade in once their top edge
   reaches the viewport, driven by the `IntersectionObserver` at the end of each
   page.
