@@ -58,6 +58,7 @@
   .hero-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:22px;font-size:.85rem;}
   .hero-links a{color:var(--muted);}
   .hero-links a:hover{color:var(--accent);}
+  .hero-links .lb{flex:0 0 100%;height:0;}
 
   section{padding:56px 0;border-bottom:1px solid var(--line-soft);}
   section:last-of-type{border-bottom:none;}
@@ -133,6 +134,7 @@
   .course-list .term{font-size:.82rem;color:var(--muted);padding-top:2px;}
   .course-list .title-i{color:var(--ink-soft);}
   .course-list li a{justify-self:start;}
+  .course-list.news li{grid-template-columns:46px 1fr;gap:12px;}
 
   ul.bullets{margin:14px 0 0;padding:0;list-style:none;}
   ul.bullets li{position:relative;padding:6px 0 6px 20px;font-size:1rem;color:var(--ink-soft);}
@@ -168,6 +170,18 @@
     .nav-links a{display:block;padding:14px 24px;}
     .nav-links a::after{display:none;}
     .nav-toggle{display:block;}
+  }
+
+  @media(max-width:560px){
+    .wrap{padding:0 16px;}
+    .nav-inner{padding:13px 16px;}
+    .hero .wrap{padding:44px 16px 40px;}
+    .subhero .wrap{padding:34px 16px 30px;}
+    section{padding:40px 0;}
+    .block{padding:18px 16px;}
+    .factcard{padding:18px 16px;}
+    .feature{padding:18px 16px;}
+    .course-list.news li{grid-template-columns:40px 1fr;gap:10px;}
   }
 
   .subhero .wrap{padding:46px 24px 40px;}
@@ -255,7 +269,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated May 2026</span></div>
+  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated August 2026</span></div>
 </footer>
 
 <script>
@@ -314,7 +328,7 @@
     "org.12":"Sondersitzung „Tractability of integration and approximation“ (mit A. Hinrichs), MCQMC 2014, Leuven",
     "svc.ref.p":"Regelmäßiger Gutachter für: Foundations of Computational Mathematics, Numerische Mathematik, Mathematics of Computation, SIAM J. Numerical Analysis, SIAM J. Scientific Computing, SIAM Review, SIAM J. Discrete Mathematics, J. Approximation Theory, Constructive Approximation, J. Complexity, J. Functional Analysis, Analysis Mathematica, Advances in Computational Mathematics, Advances in Operator Theory, Probability Theory and Related Fields, Ann. Inst. Henri Poincaré (Probab. Stat.), Communications in Mathematical Physics, J. Statistical Physics, Random Structures &amp; Algorithms, Mathematika, Applied Numerical Mathematics, Mathematics and Computers in Simulation, Electronic Communications in Probability, IEEE Open J. Signal Processing, Pure and Applied Functional Analysis, Scandinavian J. Statistics, SMAI J. Computational Mathematics, Bulletin of the Brazilian Mathematical Society sowie Transactions &amp; Proceedings of the AMS.<br>Tagungsbände: Dagstuhl, FOCS, MCM, MCQMC, RANDOM, SODA, STOC.",
     "footer.uni":"Johannes Kepler Universität Linz",
-    "footer.upd":"Zuletzt aktualisiert Mai 2026"
+    "footer.upd":"Zuletzt aktualisiert August 2026"
   };
   var EN={};
   document.querySelectorAll('[data-i18n]').forEach(function(el){EN[el.getAttribute('data-i18n')]=el.innerHTML;});
@@ -351,7 +365,7 @@
     links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});});
   }
 
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
   var path=(location.pathname.split('/').pop()||'index.html'); if(path==='')path='index.html';
