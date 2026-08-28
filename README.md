@@ -16,7 +16,7 @@ paths, so they must stay together in the same folder:
 - `index.html` — home (News + About + Contact, with an "At a glance" card)
 - `research.html` — research topics and most important results
 - `publications.html` — selected publications, preprints, full list, theses
-- `cv.html` — appointments, education, awards, talks
+- `cv.html` — appointments, education, awards, grants & funding, talks
 - `teaching.html` — teaching, incl. the new "Mathematics for Quantum Science 1–3"
 - `service.html` — editorial boards, organization, committees, refereeing
 - `press.html` — press and media
@@ -24,6 +24,8 @@ paths, so they must stay together in the same folder:
 
 Every page carries its own copy of the same stylesheet and the same `<script>`
 block, so a change to the shared design has to be repeated in all of them.
+
+The full CV as a PDF lives in `docs/`, published alongside the pages.
 
 ## Editing notes
 
@@ -42,6 +44,9 @@ block, so a change to the shared design has to be repeated in all of them.
 - **Photo.** The home hero shows the round portrait `2026.jpg`, set in
   `index.html` inside `<div class="portrait hero-portrait">`. To swap it, drop a
   new image in the root and change the `src` there.
+- **CV PDF.** `docs/CV-2026-05.pdf` is linked by the "Full CV (PDF)" button in
+  the `cv.html` hero, the only place the file name appears. Since the name is
+  dated, a newer PDF either keeps it or the `href` there has to be updated.
 - **Email.** The address never appears in readable form in the source. It is
   stored Base64-encoded in `data-eml` on `a.email` elements and assembled at
   runtime by JavaScript. The Copy button decodes the same attribute on click.
