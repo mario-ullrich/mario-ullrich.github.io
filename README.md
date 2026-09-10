@@ -24,8 +24,18 @@ paths, so they must stay together in the same folder:
 - `press.html` — press and media
 - `contact.html` — address and contact
 
-Every page carries its own copy of the same stylesheet and the same `<script>`
-block, so a change to the shared design has to be repeated in all of them.
+The design and the behaviour are shared, not copied:
+
+- `styles.css` — the whole stylesheet. Rules that apply to one page only sit
+  at the bottom, scoped by the class its `<body>` carries (`p-home`,
+  `p-research`, `p-pubs`, `p-cv`, `p-lean`, `p-teaching`, `p-service`,
+  `p-press`, `p-contact`).
+- `site.js` — the language toggle, the fade-in observer, the e-mail
+  assembly, the point-set background and the lazy MathJax loader. Each page
+  defines its own `DE` translation table in a short inline script directly
+  before loading it.
+
+A change to the shared design is therefore a change in one file.
 
 The full CV as a PDF lives in `docs/`, published alongside the pages.
 
@@ -36,7 +46,7 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   files via `file://` keeps the clipboard "Copy" button and the language
   preference (stored in `localStorage`) working.
 - **Language.** English text lives in the HTML; German overrides are in the
-  `DE = { … }` dictionary inside the `<script>` block of each page. Every
+  `DE = { … }` dictionary in the inline script at the foot of each page. Every
   translatable element carries a `data-i18n="key"` attribute. In those German
   strings, quotes and backslashes are escaped: `\"` for a quote, `\\(` for the
   opening MathJax delimiter. A key missing from a `DE` dictionary falls back
