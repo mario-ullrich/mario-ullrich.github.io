@@ -10,7 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-
   :root{
     --bg:#ffffff;--bg-2:#f8f9fa;--ink:#202124;--ink-soft:#3c4043;--muted:#5f6368;--faint:#80868b;
     --accent:#7c2b2b;--accent-2:#9c4a36;--accent-soft:rgba(124,43,43,.08);
@@ -110,11 +109,7 @@
   .pub-group-label{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:30px 0 12px;}
   .pub-group-label:first-of-type{margin-top:0;}
   ol.pubs{margin:0;padding:0;list-style:none;counter-reset:pub;}
-  ol.pubs.desc-preprints{counter-reset:pub 4;}
-  ol.pubs.desc-journals{counter-reset:pub 48;}
-  ol.pubs.desc-theses{counter-reset:pub 4;}
   ol.pubs li{counter-increment:pub;position:relative;padding:10px 0 10px 42px;border-top:1px solid var(--line-soft);}
-  ol.pubs.desc-preprints li, ol.pubs.desc-journals li, ol.pubs.desc-theses li{counter-increment:pub -1;}
   ol.pubs li:first-child{border-top:none;}
   ol.pubs li::before{content:counter(pub);position:absolute;left:0;top:11px;font-size:.82rem;color:var(--faint);font-weight:500;}
   .pub-title{font-weight:500;font-size:1.02rem;color:var(--ink);}
@@ -167,7 +162,7 @@
   .reveal.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
 
-  @media(max-width:760px){
+  @media(max-width:900px){
     .nav-links{position:absolute;top:100%;right:0;left:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s ease;}
     .nav-links.open{max-height:520px;}
     .nav-links li{border-top:1px solid var(--line-soft);}
@@ -201,6 +196,10 @@
   .copy-email{margin-left:8px;font:inherit;font-size:.72rem;line-height:1;padding:3px 9px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);cursor:pointer;vertical-align:baseline;}
   .copy-email:hover{border-color:var(--accent);color:var(--accent);}
   .copy-email.copied{color:var(--accent);border-color:var(--accent);}
+   ol.pubs.desc-preprints{counter-reset:pub 4;}
+   ol.pubs.desc-journals{counter-reset:pub 48;}
+   ol.pubs.desc-theses{counter-reset:pub 4;}
+   ol.pubs.desc-preprints li,ol.pubs.desc-journals li,ol.pubs.desc-theses li{counter-increment:pub -1;}
 </style>
 </head>
 <body>
@@ -214,6 +213,7 @@
         <li><a href="index.html" data-i18n="nav.about">About</a></li>
         <li><a href="research.html" data-i18n="nav.research">Research</a></li>
         <li><a href="publications.html" data-i18n="nav.pubs">Publications</a></li>
+        <li><a href="lean.html" data-i18n="nav.lean">Lean</a></li>
         <li><a href="cv.html" data-i18n="nav.cv">CV</a></li>
         <li><a href="teaching.html" data-i18n="nav.teaching">Teaching</a></li>
         <li><a href="service.html" data-i18n="nav.service">Service</a></li>
@@ -341,6 +341,7 @@
 </footer>
 
 <script>
+
 /* Load MathJax only on pages that actually contain TeX math, so math-free
    pages never download the (~1 MB) library. We scan the page text for the
    inline and display math delimiters (backslash-paren and backslash-bracket),

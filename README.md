@@ -16,6 +16,8 @@ paths, so they must stay together in the same folder:
 - `index.html` — home (News + About + Contact, with an "At a glance" card)
 - `research.html` — research topics and most important results
 - `publications.html` — selected publications, preprints, full list, theses
+- `lean.html` — the Lean 4 / Mathlib formalization projects and their entries in
+  the Palomar registry
 - `cv.html` — appointments, education, awards, grants & funding, talks
 - `teaching.html` — teaching, incl. the new "Mathematics for Quantum Science 1–3"
 - `service.html` — editorial boards, organization, committees, refereeing
@@ -37,7 +39,9 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   `DE = { … }` dictionary inside the `<script>` block of each page. Every
   translatable element carries a `data-i18n="key"` attribute. In those German
   strings, quotes and backslashes are escaped: `\"` for a quote, `\\(` for the
-  opening MathJax delimiter.
+  opening MathJax delimiter. A key missing from a `DE` dictionary falls back
+  to the English text; `nav.lean` relies on that, the label being a proper name
+  that reads the same in both languages.
 - **Formulas.** MathJax is loaded from a CDN, but only on pages that actually
   contain `\( … \)`, so math-free pages skip the ~1 MB download. Adding a formula
   to a page changes that.
