@@ -23,6 +23,23 @@
   document.head.appendChild(s);
 })();
 
+/* Visitor statistics via GoatCounter (https://www.goatcounter.com).
+   It sets no cookies and stores no personal data, so the site needs no
+   consent banner. GOATCOUNTER_CODE is the account name registered there,
+   i.e. the first part of <code>.goatcounter.com; setting it to an empty
+   string switches the counter off everywhere. The counter script ignores
+   localhost, so previewing the site does not appear in the statistics. */
+(function () {
+  var GOATCOUNTER_CODE = 'mario-ullrich';
+  if (!GOATCOUNTER_CODE) return;
+  var s = document.createElement('script');
+  s.src = 'https://gc.zgo.at/count.js';
+  s.async = true;
+  s.setAttribute('data-goatcounter',
+                 'https://' + GOATCOUNTER_CODE + '.goatcounter.com/count');
+  document.head.appendChild(s);
+})();
+
   var yrEl=document.getElementById('yr'); if(yrEl) yrEl.textContent=new Date().getFullYear();
   var DE = window.DE || {};
   var EN={};

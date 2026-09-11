@@ -31,9 +31,9 @@ The design and the behaviour are shared, not copied:
   `p-research`, `p-pubs`, `p-cv`, `p-lean`, `p-teaching`, `p-service`,
   `p-press`, `p-contact`).
 - `site.js` — the language toggle, the fade-in observer, the e-mail
-  assembly, the point-set background and the lazy MathJax loader. Each page
-  defines its own `DE` translation table in a short inline script directly
-  before loading it.
+  assembly, the point-set background, the lazy MathJax loader and the visitor
+  counter. Each page defines its own `DE` translation table in a short inline
+  script directly before loading it.
 
 A change to the shared design is therefore a change in one file.
 
@@ -64,6 +64,12 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
 - **Email.** The address never appears in readable form in the source. It is
   stored Base64-encoded in `data-eml` on `a.email` elements and assembled at
   runtime by JavaScript. The Copy button decodes the same attribute on click.
+- **Visitor statistics.** The pages are counted by GoatCounter, loaded at the
+  top of `site.js`. The account name sits there in the single constant
+  `GOATCOUNTER_CODE`; emptying that string removes the counter from every page.
+  The figures are at <https://mario-ullrich.goatcounter.com/>. GoatCounter sets
+  no cookies and keeps no personal data, so the site needs no consent banner,
+  and its script ignores `localhost`, so a local preview is never counted.
 - **The Lean page.** `lean.html` has two repeatable blocks, both meant to be
   copied when something is added.
 
