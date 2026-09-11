@@ -1,0 +1,19 @@
+# Everything committed here is published, both by GitHub Pages and on the
+# repository page itself, so keep local clutter out.
+
+# Editor / OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
+
+# Python, from running `python -m http.server` in this folder to preview
+__pycache__/
+*.pyc
+
+# Note: unlike the Lean repositories, *.pdf is deliberately NOT ignored here —
+# docs/CV-2026-05.pdf is part of the site and is linked from cv.html.
