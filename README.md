@@ -64,6 +64,23 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
 - **Email.** The address never appears in readable form in the source. It is
   stored Base64-encoded in `data-eml` on `a.email` elements and assembled at
   runtime by JavaScript. The Copy button decodes the same attribute on click.
+- **The Lean page.** `lean.html` has two repeatable blocks, both meant to be
+  copied when something is added.
+
+  A *project* is one `div.feature` inside `#projects`: an `h3` holding the
+  project name plus `a.repo` with the repository in brackets, then
+  `p.proj-links` with blueprint and dependency-graph links, then the prose
+  paragraphs. Its keys are namespaced by project, `lean.snum.*` for the
+  s-numbers one, so a second project takes its own prefix.
+
+  A *registered result* is one `div.factcard.result` inside `#registry`, titled
+  by the theorem itself (`lean.maxdiff.h`) rather than by a label, followed by
+  the rows Entry, Registered and Statements. The row labels `lean.reg.k.*` are
+  shared, so a further result reuses them and only needs its own title key and
+  values. Take the values from the registry record rather than the entry page,
+  which is rendered by JavaScript and arrives empty:
+  `https://data.palomar-registry.org/entries/<ID>-v<N>.json`.
+
 - **Publication numbering.** The grouped lists on `publications.html` count
   downwards (`counter-increment: pub -1`), so after adding or removing an entry
   the `counter-reset` value — in the CSS *and* in the inline `style` on the `<ol>`
