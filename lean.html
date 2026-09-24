@@ -58,26 +58,22 @@
 <section id="projects"><div class="wrap">
   <div class="sec-head reveal"><span class="sec-num"></span><h2 data-i18n="lean.proj.h">Projects on GitHub</h2><span class="sec-rule"></span></div>
 <div class="reveal">
-      <div class="factcard lean-about"><p data-i18n="lean.proj.lead">A <strong>blueprint</strong> is a readable account of the mathematics with links into the Lean code,<br>and its <strong>dependency graph</strong> shows which results rest on which.</p></div>
+      <div class="factcard lean-about">
+        <p data-i18n="lean.proj.lead">A <strong>blueprint</strong> is a readable account of the mathematics with links into the Lean code, and its <strong>dependency graph</strong> shows which results rest on which.</p>
+        <p data-i18n="lean.proj.lead2"><strong><a href="https://palomar-registry.org/">Palomar</a></strong> is a public registry of Lean formalizations. It re-runs the proof itself at one pinned commit of the repository and records the outcome, down to the axioms the proof rests on.</p>
+      </div>
       <div class="feature">
         <h3><span data-i18n="lean.snum.h">s-Numbers of operators</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-SNumbers">(Lean-SNumbers)</a></h3>
-        <p class="proj-links" data-i18n="lean.snum.links"><a href="https://mario-ullrich.github.io/Lean-SNumbers/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html">Dependency graph</a></p>
+        <p class="proj-links" data-i18n="lean.snum.links"><a href="https://mario-ullrich.github.io/Lean-SNumbers/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 16,000 lines, Lean 4.33.1</span></p>
         <p data-i18n="lean.snum.p1">Pietsch&#39;s axiomatic theory of s-numbers, which takes the place of the singular values on Banach spaces, where no spectral theorem is at hand. The development covers the axioms, the five classical sequences (the approximation numbers \(a_n\), the Bernstein, Gelfand and Kolmogorov numbers, and the Hilbert numbers \(h_n\)) and the inequalities between them. Its main result is the maximal difference theorem \(a_n(S)\le e(n+1)\,h_n(S)\). Since \(a_n\) is the largest s-number sequence and \(h_n\) the smallest, this single factor bounds the gap between <em>any</em> two of them, and its growth in \(n\) is order-optimal.</p>
         <p data-i18n="lean.snum.p2">Getting there called for a good deal of general functional analysis that Mathlib does not yet carry: Auerbach's lemma, John's ellipsoid together with the decomposition of the identity, the singular value decomposition of a compact operator, the Eckart–Young theorem, and the projection theorems of Kadets–Snobar and Garling–Gordon.</p>
-        <p data-i18n="lean.snum.p3">About 17,500 lines against Lean 4.33.0, with no <code>sorry</code> left in the library. A blueprint pairs every Lean declaration with its mathematical statement and draws the dependency graph.</p>
-      </div>
-    </div>
-</div></section>
-
-<section id="registry"><div class="wrap">
-  <div class="sec-head reveal"><span class="sec-num"></span><h2 data-i18n="lean.reg.h">Palomar-registered results</h2><span class="sec-rule"></span></div>
-<div class="reveal">
-      <div class="factcard lean-about"><p data-i18n="lean.reg.lead"><strong><a href="https://palomar-registry.org/">Palomar</a></strong> is a public registry of Lean formalizations. It re-runs the proof itself at one pinned commit of the repository and records the outcome, down to the axioms the proof rests on.</p></div>
-      <div class="factcard result">
-        <h3 data-i18n="lean.maxdiff.h">The maximal difference theorem for s-numbers</h3>
-        <div class="factrow"><span class="k" data-i18n="lean.reg.k.entry">Entry</span><span class="v" data-i18n="lean.reg.v.entry"><a href="https://palomar-registry.org/entry?id=PALOMAR-2026-09-07-000008&amp;version=1">PALOMAR-2026-09-07-000008</a>, version 1</span></div>
-        <div class="factrow"><span class="k" data-i18n="lean.reg.k.date">Registered</span><span class="v" data-i18n="lean.reg.v.date">7 September 2026</span></div>
-        <div class="factrow"><span class="k" data-i18n="lean.reg.k.stmt">Statements</span><span class="v"><span class="stmt"><code>SNumbers.approximationNumber_le_mul_hilbertNumber</code><span class="f">\(a_n(S)\le \frac{(n+1)^{n+1}}{n^{n}}\,h_n(S)\)</span></span><span class="stmt"><code>SNumbers.approximationNumber_le_e_mul_hilbertNumber</code><span class="f">\(a_n(S)\le e\,(n+1)\,h_n(S)\)</span></span></span></div>
+        <div class="registry">
+          <p class="kicker" data-i18n="lean.reg.kicker">Registered in Palomar</p>
+          <h4 data-i18n="lean.maxdiff.h">The maximal difference theorem for s-numbers</h4>
+          <div class="factrow"><span class="k" data-i18n="lean.reg.k.entry">Entry</span><span class="v" data-i18n="lean.reg.v.entry"><a href="https://palomar-registry.org/entry?id=PALOMAR-2026-09-07-000008&amp;version=1">PALOMAR-2026-09-07-000008</a>, version 1</span></div>
+          <div class="factrow"><span class="k" data-i18n="lean.reg.k.date">Registered</span><span class="v" data-i18n="lean.reg.v.date">7 September 2026</span></div>
+          <div class="factrow"><span class="k" data-i18n="lean.reg.k.stmt">Statements</span><span class="v"><span class="stmt"><code>SNumbers.approximationNumber_le_mul_hilbertNumber</code><span class="f">\(a_n(S)\le \frac{(n+1)^{n+1}}{n^{n}}\,h_n(S)\)</span></span><span class="stmt"><code>SNumbers.approximationNumber_le_e_mul_hilbertNumber</code><span class="f">\(a_n(S)\le e\,(n+1)\,h_n(S)\)</span></span></span></div>
+        </div>
       </div>
     </div>
 </div></section>
@@ -103,14 +99,13 @@
     "lean.about.h":"Was ist Lean?",
     "lean.lead1":"Eine Formalisierung formuliert Definitionen und Sätze in der abhängigen Typentheorie von <a href=\"https://lean-lang.org/\">Lean 4</a> und gibt ihre Beweise als Terme dieser Theorie an. Ob ein solcher Term ein Beweis ist, entscheidet ein kleiner Kern, der jeden Schritt nachrechnet, und die Axiome, auf die sich ein fertiger Beweis stützt, lassen sich genau angeben. <a href=\"https://leanprover-community.github.io/\">Mathlib</a>, die Bibliothek der Lean-Gemeinschaft, liefert die Grundlagen aus Analysis, linearer Algebra und Topologie und wird laufend erweitert.",
     "lean.proj.h":"Projekte auf GitHub",
-    "lean.proj.lead":"Ein <strong>Blueprint</strong> ist eine lesbare Darstellung der Mathematik mit Verweisen in den Lean-Code,<br>und sein <strong>Abhängigkeitsgraph</strong> zeigt, welche Ergebnisse auf welchen beruhen.",
+    "lean.proj.lead":"Ein <strong>Blueprint</strong> ist eine lesbare Darstellung der Mathematik mit Verweisen in den Lean-Code, und sein <strong>Abhängigkeitsgraph</strong> zeigt, welche Ergebnisse auf welchen beruhen.",
+    "lean.proj.lead2":"<strong><a href=\"https://palomar-registry.org/\">Palomar</a></strong> ist ein öffentliches Register von Lean-Formalisierungen. Es lässt den Beweis selbst noch einmal auf einem festgelegten Commit des Repositoriums laufen und hält das Ergebnis fest, bis hin zu den Axiomen, auf denen der Beweis ruht.",
     "lean.snum.h":"s-Zahlen von Operatoren",
     "lean.snum.p1":"Pietschs axiomatische Theorie der s-Zahlen, die auf Banachräumen an die Stelle der singulären Werte tritt, wo kein Spektralsatz zur Verfügung steht. Die Entwicklung umfasst die Axiome, die fünf klassischen Folgen (die Approximationszahlen \\(a_n\\), die Bernstein-, Gelfand- und Kolmogorov-Zahlen sowie die Hilbert-Zahlen \\(h_n\\)) und die Ungleichungen zwischen ihnen. Das Hauptergebnis ist der Satz über die maximale Differenz \\(a_n(S)\\le e(n+1)\\,h_n(S)\\). Da \\(a_n\\) die größte s-Zahlen-Folge ist und \\(h_n\\) die kleinste, beschränkt dieser eine Faktor den Abstand zwischen <em>je zwei</em> von ihnen, und sein Wachstum in \\(n\\) ist größenordnungsoptimal.",
     "lean.snum.p2":"Der Weg dorthin verlangte eine ganze Menge allgemeiner Funktionalanalysis, die Mathlib noch nicht enthält: das Lemma von Auerbach, das John-Ellipsoid samt Zerlegung der Identität, die Singulärwertzerlegung eines kompakten Operators, den Satz von Eckart–Young sowie die Projektionssätze von Kadets–Snobar und Garling–Gordon.",
-    "lean.snum.p3":"Rund 17.500 Zeilen gegen Lean 4.33.0, ohne verbliebenes <code>sorry</code> in der Bibliothek. Ein Blueprint stellt jeder Lean-Deklaration ihre mathematische Formulierung gegenüber und zeichnet den Abhängigkeitsgraphen.",
-    "lean.snum.links":"<a href=\"https://mario-ullrich.github.io/Lean-SNumbers/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html\">Abhängigkeitsgraph</a>",
-    "lean.reg.h":"Bei Palomar registrierte Ergebnisse",
-    "lean.reg.lead":"<strong><a href=\"https://palomar-registry.org/\">Palomar</a></strong> ist ein öffentliches Register von Lean-Formalisierungen. Es lässt den Beweis selbst noch einmal auf einem festgelegten Commit des Repositoriums laufen und hält das Ergebnis fest, bis hin zu den Axiomen, auf denen der Beweis ruht.",
+    "lean.snum.links":"<a href=\"https://mario-ullrich.github.io/Lean-SNumbers/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 16.000 Zeilen, Lean 4.33.1</span>",
+    "lean.reg.kicker":"Bei Palomar registriert",
     "lean.maxdiff.h":"Der Satz über die maximale Differenz für s-Zahlen",
     "lean.reg.k.entry":"Eintrag",
     "lean.reg.v.entry":"<a href=\"https://palomar-registry.org/entry?id=PALOMAR-2026-09-07-000008&amp;version=1\">PALOMAR-2026-09-07-000008</a>, Version 1",

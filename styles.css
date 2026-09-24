@@ -222,6 +222,8 @@
    .p-lean .proj-links .sep{display:inline-block;margin:0 .8em;color:var(--line);}
    .p-lean .proj-links a{color:var(--accent);}
    .p-lean .proj-links a:hover{color:var(--accent-2);}
+   /* size and Lean version: a footnote to the links, not a link itself */
+   .p-lean .proj-links .meta{color:var(--faint);font-size:.8em;font-weight:300;}
    /* page-specific: Lean identifiers, which no other page shows */
    .p-lean code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;color:var(--ink-soft);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:4px;padding:1px 5px;overflow-wrap:anywhere;}
    .p-lean .factrow .v code{display:inline-block;max-width:100%;margin:1px 0;}
@@ -229,20 +231,22 @@
    .p-lean #lean{padding:34px 0;}
    .p-lean #projects{padding-top:40px;padding-bottom:32px;}
    .p-lean #projects .feature:last-child{margin-bottom:0;}
-   .p-lean #registry{padding-top:36px;}
    .p-lean .lean-about{max-width:780px;margin:0 0 20px;}
    .p-lean #lean .lean-about{margin-bottom:0;}   /* stands alone, needs no gap below */
-   /* the two section notes are annotations, smaller than the intro card */
-   .p-lean #projects .lean-about,.p-lean #registry .lean-about{max-width:660px;padding:14px 18px;}
-   .p-lean #projects .lean-about p,.p-lean #registry .lean-about p{font-size:.875rem;}
-   /* one registered statement per block: the formula, then its Lean name */
+   .p-lean .lean-about p{font-size:.95rem;margin:0;}
+   .p-lean .lean-about p + p{margin-top:8px;}
+   /* the section note is an annotation, smaller than the intro card */
+   .p-lean #projects .lean-about{max-width:660px;padding:14px 18px;}
+   .p-lean #projects .lean-about p{font-size:.875rem;}
+   /* the Palomar entry of a project sits at the foot of its block, set off by a rule */
+   .p-lean .registry{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
+   .p-lean .registry .kicker{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 4px;}
+   .p-lean .registry h4{font-size:1.05rem;font-weight:600;margin:0 0 6px;color:var(--ink);}
+   /* one registered statement per block: the Lean name, then the formula */
    .p-lean .stmt{display:block;}
    .p-lean .stmt + .stmt{margin-top:6px;}
    .p-lean .stmt .f{font-size:.85em;margin-left:10px;white-space:nowrap;}
    .p-lean .stmt .f::before{content:"→";margin-right:7px;color:var(--faint);}
-   .p-lean .lean-about p{font-size:.95rem;margin:0;}
-   /* a result card is titled by its theorem, not by a small-caps label */
-   .p-lean .factcard.result h3{font-size:1.1rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--ink);}
 
 /* service.html */
    .p-service .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}

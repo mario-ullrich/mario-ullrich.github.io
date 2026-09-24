@@ -70,21 +70,24 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   The figures are at <https://mario-ullrich.goatcounter.com/>. GoatCounter sets
   no cookies and keeps no personal data, so the site needs no consent banner,
   and its script ignores `localhost`, so a local preview is never counted.
-- **The Lean page.** `lean.html` has two repeatable blocks, both meant to be
-  copied when something is added.
+- **The Lean page.** `lean.html` has one repeatable block, meant to be copied
+  when a project is added.
 
   A *project* is one `div.feature` inside `#projects`: an `h3` holding the
   project name plus `a.repo` with the repository in brackets, then
-  `p.proj-links` with blueprint and dependency-graph links, then the prose
+  `p.proj-links` with the blueprint and dependency-graph links and, after a
+  separator, `span.meta` with the size and the Lean version, then the prose
   paragraphs. Its keys are namespaced by project, `lean.snum.*` for the
   s-numbers one, so a second project takes its own prefix.
 
-  A *registered result* is one `div.factcard.result` inside `#registry`, titled
-  by the theorem itself (`lean.maxdiff.h`) rather than by a label, followed by
-  the rows Entry, Registered and Statements. The row labels `lean.reg.k.*` are
-  shared, so a further result reuses them and only needs its own title key and
-  values. Take the values from the registry record rather than the entry page,
-  which is rendered by JavaScript and arrives empty:
+  A project's *Palomar entry* is a `div.registry` at the foot of its block: the
+  kicker `lean.reg.kicker`, an `h4` titled by the theorem itself
+  (`lean.maxdiff.h`) rather than by a label, then the rows Entry, Registered
+  and Statements. The kicker and the row labels `lean.reg.k.*` are shared, so a
+  further result reuses them and only needs its own title key and values. A
+  project without a registered result simply has no `div.registry`. Take the
+  values from the registry record rather than the entry page, which is
+  rendered by JavaScript and arrives empty:
   `https://data.palomar-registry.org/entries/<ID>-v<N>.json`.
 
 - **Publication numbering.** The grouped lists on `publications.html` count
