@@ -1,0 +1,5 @@
+# Nothing here is private, so every crawler may read every page.
+User-agent: *
+Disallow:
+
+Sitemap: https://mario-ullrich.github.io/sitemap.xml

@@ -70,6 +70,21 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   The figures are at <https://mario-ullrich.goatcounter.com/>. GoatCounter sets
   no cookies and keeps no personal data, so the site needs no consent banner,
   and its script ignores `localhost`, so a local preview is never counted.
+- **Search engines.** Each page names its own address in a
+  `<link rel="canonical">` in the `<head>`, so that the several addresses a page
+  is reachable under (with and without `index.html`, with tracking parameters
+  appended) count as one page. A new page needs that line too, pointing at
+  itself.
+
+  `sitemap.xml` lists every page with the date it last changed and is generated
+  from the git history, never edited by hand: the workflow
+  `.github/workflows/sitemap.yml` rewrites and commits it whenever a page or the
+  CV changes on `main`. To refresh it locally, run `python .github/make-sitemap.py`.
+  `robots.txt` allows every crawler everything and points at the sitemap. Both
+  files carry the site's address in full, so moving the site to another domain
+  means changing `BASE` in the generator, the address in `robots.txt` and the
+  canonical link in each page.
+
 - **The Lean page.** `lean.html` has one repeatable block, meant to be copied
   when a project is added.
 

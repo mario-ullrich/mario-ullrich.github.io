@@ -1,0 +1,42 @@
+# Keep sitemap.xml in step with the pages.
+#
+# Whenever a page or the CV changes on `main`, this regenerates the file from
+# the git history and commits it back, so the <lastmod> dates can never fall
+# behind.  Rewriting sitemap.xml touches none of the watched paths, so the
+# commit does not start the job again.
+name: Sitemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.html'
+      - 'docs/**'
+      - '.github/make-sitemap.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The generator reads the commit dates, so it needs the whole history.
+          fetch-depth: 0
+
+      - name: Generate sitemap.xml
+        run: python3 .github/make-sitemap.py
+
+      - name: Commit it if it changed
+        run: |
+          if git diff --quiet -- sitemap.xml; then
+            echo "sitemap.xml is already up to date"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update sitemap.xml" -- sitemap.xml
+          git push
