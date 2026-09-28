@@ -92,8 +92,8 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   project name plus `a.repo` with the repository in brackets, then
   `p.proj-links` with the blueprint and dependency-graph links and, after a
   separator, `span.meta` with the size and the Lean version, then the prose
-  paragraphs. Its keys are namespaced by project, `lean.snum.*` for the
-  s-numbers one, so a second project takes its own prefix.
+  paragraphs. Its keys are namespaced by project, `lean.snum.*` and
+  `lean.disc.*`, so a further project takes its own prefix.
 
   A project's *Palomar entry* is a `div.registry` at the foot of its block: the
   kicker `lean.reg.kicker`, an `h4` titled by the theorem itself
