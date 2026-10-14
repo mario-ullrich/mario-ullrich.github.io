@@ -85,23 +85,33 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   means changing `BASE` in the generator, the address in `robots.txt` and the
   canonical link in each page.
 
-- **The Lean page.** `lean.html` has one repeatable block, meant to be copied
-  when a project is added.
+- **The Lean page.** `lean.html` opens with a table of contents and has one
+  repeatable block per project.
 
-  A *project* is one `div.feature` inside `#projects`: an `h3` holding the
-  project name plus `a.repo` with the repository in brackets, then
-  `p.proj-links` with the blueprint and dependency-graph links and, after a
-  separator, `span.meta` with the size and the Lean version, then the prose
-  paragraphs. Its keys are namespaced by project, `lean.snum.*` and
-  `lean.disc.*`, so a further project takes its own prefix.
+  The *table of contents* in the hero is the caption `lean.toc.h` and the list
+  `ul.bullets.toc`, one item per project linking to its id (`#snumbers`,
+  `#discretization`), keys `lean.toc.*`. The intro
+  card `#lean` holds three paragraphs, `lean.lead1` to `lean.lead3`: what Lean is,
+  that the projects are hosted on GitHub with a blueprint and a dependency graph, and
+  what Palomar is. The projects follow without a section heading.
+
+  A *project* is one `div.feature` with an id inside `#projects`: an `h3` holding the
+  project name plus `a.repo` with the repository in brackets, then `p.proj-links`
+  with the blueprint and dependency-graph links and, after a separator, `span.meta`
+  with the size and the Lean version, then the prose paragraphs. Its keys are
+  namespaced by project, `lean.snum.*` and `lean.disc.*`, so a further project takes
+  its own prefix, its own id and its own item in the table of contents.
 
   A project's *Palomar entry* is a `div.registry` at the foot of its block: the
-  kicker `lean.reg.kicker`, an `h4` titled by the theorem itself
-  (`lean.maxdiff.h`) rather than by a label, then the rows Entry, Registered
-  and Statements. The kicker and the row labels `lean.reg.k.*` are shared, so a
-  further result reuses them and only needs its own title key and values. A
-  project without a registered result simply has no `div.registry`. Take the
-  values from the registry record rather than the entry page, which is
+  kicker `lean.reg.kicker`, an `h4` titled by the theorem itself rather than by a
+  label, then the rows Entry, Registered and Statements. The kicker and the row
+  labels `lean.reg.k.*` are shared; each result has its own title and date keys,
+  `lean.maxdiff.h` and `lean.maxdiff.date`, `lean.bss.h` and `lean.bss.date`. The
+  Entry row shows the bare id linked to the permalink
+  `https://palomar-registry.org/entry?id=<ID>&version=<N>` and needs no translation.
+  On phones each formula moves under its Lean name and scrolls if it is wider than
+  the card. A project without a registered result simply has no `div.registry`.
+  Take the values from the registry record rather than the entry page, which is
   rendered by JavaScript and arrives empty:
   `https://data.palomar-registry.org/entries/<ID>-v<N>.json`.
 

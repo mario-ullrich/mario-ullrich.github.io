@@ -42,6 +42,11 @@
   <div class="wrap">
     <h1 data-i18n="lean.h">Formalization in Lean</h1>
     <p class="intro" data-i18n="lean.intro">Lean 4 / Mathlib formalizations of results from my research, with the proofs checked by the Lean kernel.</p>
+    <p class="list-caption toc-title" data-i18n="lean.toc.h">Projects</p>
+    <ul class="bullets toc">
+      <li><a href="#snumbers" data-i18n="lean.toc.snum">s-Numbers of operators</a></li>
+      <li><a href="#discretization" data-i18n="lean.toc.disc">Norm discretization</a></li>
+    </ul>
   </div>
 </header>
 
@@ -52,20 +57,17 @@
       <div class="factcard lean-about">
         <h3 data-i18n="lean.about.h">What is Lean?</h3>
         <p data-i18n="lean.lead1">A formalization states definitions and theorems in the dependent type theory of <a href="https://lean-lang.org/">Lean 4</a> and gives their proofs as terms of that theory. Whether such a term is a proof is decided by a small kernel that rechecks every step, and the axioms a finished proof relies on can be listed exactly. <a href="https://leanprover-community.github.io/">Mathlib</a>, the community library, supplies the underlying analysis, linear algebra and topology basics, and is extended over time.</p>
+        <p data-i18n="lean.lead2">The projects are hosted on <a href="https://github.com/mario-ullrich">GitHub</a>. Each comes with a <strong>blueprint</strong>, a readable account of the mathematics with links into the Lean code, and a <strong>dependency graph</strong> showing which results rest on which.</p>
+        <p data-i18n="lean.lead3"><strong><a href="https://palomar-registry.org/">Palomar</a></strong> is a public registry of Lean formalizations. It re-runs the proof itself at one pinned commit of the repository and records the outcome, down to the axioms the proof rests on.</p>
       </div>
     </div>
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <div class="sec-head reveal"><span class="sec-num"></span><h2 data-i18n="lean.proj.h">Projects on GitHub</h2><span class="sec-rule"></span></div>
 <div class="reveal">
-      <div class="factcard lean-about">
-        <p data-i18n="lean.proj.lead">A <strong>blueprint</strong> is a readable account of the mathematics with links into the Lean code, and its <strong>dependency graph</strong> shows which results rest on which.</p>
-        <p data-i18n="lean.proj.lead2"><strong><a href="https://palomar-registry.org/">Palomar</a></strong> is a public registry of Lean formalizations. It re-runs the proof itself at one pinned commit of the repository and records the outcome, down to the axioms the proof rests on.</p>
-      </div>
       <div class="feature" id="snumbers">
         <h3><span data-i18n="lean.snum.h">s-Numbers of operators</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-SNumbers">(Lean-SNumbers)</a></h3>
-        <p class="proj-links" data-i18n="lean.snum.links"><a href="https://mario-ullrich.github.io/Lean-SNumbers/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 16,000 lines, Lean 4.33.1</span></p>
+        <p class="proj-links" data-i18n="lean.snum.links"><a href="https://mario-ullrich.github.io/Lean-SNumbers/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 15,000 lines, Lean 4.35.0-rc2</span></p>
         <p data-i18n="lean.snum.p1">Pietsch&#39;s axiomatic theory of s-numbers, which takes the place of the singular values on Banach spaces, where no spectral theorem is at hand. The development covers the axioms, the five classical sequences (the approximation numbers \(a_n\), the Bernstein, Gelfand and Kolmogorov numbers, and the Hilbert numbers \(h_n\)) and the inequalities between them. Its main result is the maximal difference theorem \(a_n(S)\le e(n+1)\,h_n(S)\). Since \(a_n\) is the largest s-number sequence and \(h_n\) the smallest, this single factor bounds the gap between <em>any</em> two of them, and its growth in \(n\) is order-optimal.</p>
         <p data-i18n="lean.snum.p2">Getting there called for a good deal of general functional analysis that Mathlib does not yet carry: Auerbach's lemma, John's ellipsoid together with the decomposition of the identity, the singular value decomposition of a compact operator, the Eckart–Young theorem, and the projection theorems of Kadets–Snobar and Garling–Gordon.</p>
         <div class="registry">
@@ -78,7 +80,7 @@
       </div>
       <div class="feature" id="discretization">
         <h3><span data-i18n="lean.disc.h">Norm discretization</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-Discretization">(Lean-Discretization)</a></h3>
-        <p class="proj-links" data-i18n="lean.disc.links"><a href="https://mario-ullrich.github.io/Lean-Discretization/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 8,000 lines, Lean 4.35.0-rc2</span></p>
+        <p class="proj-links" data-i18n="lean.disc.links"><a href="https://mario-ullrich.github.io/Lean-Discretization/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 8,500 lines, Lean 4.35.0-rc2</span></p>
         <p data-i18n="lean.disc.p1">Two theorems that replace a norm by finitely many point evaluations. The first is the generalized sparsification theorem of Batson, Spielman and Srivastava from a joint paper with Chkifa, Dolbeault and Krieg: for an \(m\)-dimensional space of square-integrable functions and every \(n\ge m\) there are \(n\) points and positive weights such that \(\sum_i w_i\,|f(x_i)|^2\) stays within the factors \((1\mp\sqrt{(m-1)/n})^2\) of \(\int|f|^2\,d\mu\) for every \(f\) in the space, with no side condition. In the generalized form the upper bound refers to a second family, which may be countably infinite, and depends on its effective dimension rather than its size; this is what makes the theorem applicable to reproducing kernel Hilbert spaces.</p>
         <p data-i18n="lean.disc.p2">The second is the Kiefer–Wolfowitz theorem in the form used for sampling projections: on an \(m\)-dimensional space of bounded functions, a probability measure maximizing the determinant of the Gram matrix bounds the uniform norm by the \(L_2\) norm with the constant \(\sqrt{m+\varepsilon}\), and with \(\sqrt{m}\) on a compact domain. Both proofs are constructive. Among the building blocks Mathlib does not yet carry are Sherman–Morrison for rank-one updates, the matrix determinant lemma and the trace of an operator along a Hilbert basis.</p>
         <div class="registry">
@@ -95,7 +97,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated September 2026</span></div>
+  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated October 2026</span></div>
 </footer>
 
 <script>
@@ -110,17 +112,19 @@
     "nav.contact":"Kontakt",
     "lean.h":"Formalisierung in Lean",
     "lean.intro":"Lean-4/Mathlib-Formalisierungen von Ergebnissen aus meiner Forschung, deren Beweise vom Lean-Kern geprüft sind.",
+    "lean.toc.h":"Projekte",
+    "lean.toc.snum":"s-Zahlen von Operatoren",
+    "lean.toc.disc":"Diskretisierung von Normen",
     "lean.about.h":"Was ist Lean?",
     "lean.lead1":"Eine Formalisierung formuliert Definitionen und Sätze in der abhängigen Typentheorie von <a href=\"https://lean-lang.org/\">Lean 4</a> und gibt ihre Beweise als Terme dieser Theorie an. Ob ein solcher Term ein Beweis ist, entscheidet ein kleiner Kern, der jeden Schritt nachrechnet, und die Axiome, auf die sich ein fertiger Beweis stützt, lassen sich genau angeben. <a href=\"https://leanprover-community.github.io/\">Mathlib</a>, die Bibliothek der Lean-Gemeinschaft, liefert die Grundlagen aus Analysis, linearer Algebra und Topologie und wird laufend erweitert.",
-    "lean.proj.h":"Projekte auf GitHub",
-    "lean.proj.lead":"Ein <strong>Blueprint</strong> ist eine lesbare Darstellung der Mathematik mit Verweisen in den Lean-Code, und sein <strong>Abhängigkeitsgraph</strong> zeigt, welche Ergebnisse auf welchen beruhen.",
-    "lean.proj.lead2":"<strong><a href=\"https://palomar-registry.org/\">Palomar</a></strong> ist ein öffentliches Register von Lean-Formalisierungen. Es lässt den Beweis selbst noch einmal auf einem festgelegten Commit des Repositoriums laufen und hält das Ergebnis fest, bis hin zu den Axiomen, auf denen der Beweis ruht.",
+    "lean.lead2":"Die Projekte liegen auf <a href=\"https://github.com/mario-ullrich\">GitHub</a>. Zu jedem gehört ein <strong>Blueprint</strong>, eine lesbare Darstellung der Mathematik mit Verweisen in den Lean-Code, und ein <strong>Abhängigkeitsgraph</strong>, der zeigt, welche Ergebnisse auf welchen beruhen.",
+    "lean.lead3":"<strong><a href=\"https://palomar-registry.org/\">Palomar</a></strong> ist ein öffentliches Register von Lean-Formalisierungen. Es lässt den Beweis selbst noch einmal auf einem festgelegten Commit des Repositoriums laufen und hält das Ergebnis fest, bis hin zu den Axiomen, auf denen der Beweis ruht.",
     "lean.snum.h":"s-Zahlen von Operatoren",
     "lean.snum.p1":"Pietschs axiomatische Theorie der s-Zahlen, die auf Banachräumen an die Stelle der singulären Werte tritt, wo kein Spektralsatz zur Verfügung steht. Die Entwicklung umfasst die Axiome, die fünf klassischen Folgen (die Approximationszahlen \\(a_n\\), die Bernstein-, Gelfand- und Kolmogorov-Zahlen sowie die Hilbert-Zahlen \\(h_n\\)) und die Ungleichungen zwischen ihnen. Das Hauptergebnis ist der Satz über die maximale Differenz \\(a_n(S)\\le e(n+1)\\,h_n(S)\\). Da \\(a_n\\) die größte s-Zahlen-Folge ist und \\(h_n\\) die kleinste, beschränkt dieser eine Faktor den Abstand zwischen <em>je zwei</em> von ihnen, und sein Wachstum in \\(n\\) ist größenordnungsoptimal.",
     "lean.snum.p2":"Der Weg dorthin verlangte eine ganze Menge allgemeiner Funktionalanalysis, die Mathlib noch nicht enthält: das Lemma von Auerbach, das John-Ellipsoid samt Zerlegung der Identität, die Singulärwertzerlegung eines kompakten Operators, den Satz von Eckart–Young sowie die Projektionssätze von Kadets–Snobar und Garling–Gordon.",
-    "lean.snum.links":"<a href=\"https://mario-ullrich.github.io/Lean-SNumbers/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 16.000 Zeilen, Lean 4.33.1</span>",
+    "lean.snum.links":"<a href=\"https://mario-ullrich.github.io/Lean-SNumbers/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 15.000 Zeilen, Lean 4.35.0-rc2</span>",
     "lean.disc.h":"Diskretisierung von Normen",
-    "lean.disc.links":"<a href=\"https://mario-ullrich.github.io/Lean-Discretization/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 8.000 Zeilen, Lean 4.35.0-rc2</span>",
+    "lean.disc.links":"<a href=\"https://mario-ullrich.github.io/Lean-Discretization/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 8.500 Zeilen, Lean 4.35.0-rc2</span>",
     "lean.disc.p1":"Zwei Sätze, die eine Norm durch endlich viele Funktionswerte ersetzen. Der erste ist der verallgemeinerte Sparsification-Satz von Batson, Spielman und Srivastava aus einer gemeinsamen Arbeit mit Chkifa, Dolbeault und Krieg: Für einen \\(m\\)-dimensionalen Raum quadratintegrierbarer Funktionen und jedes \\(n\\ge m\\) gibt es \\(n\\) Punkte und positive Gewichte, sodass \\(\\sum_i w_i\\,|f(x_i)|^2\\) für jedes \\(f\\) aus dem Raum bis auf die Faktoren \\((1\\mp\\sqrt{(m-1)/n})^2\\) mit \\(\\int|f|^2\\,d\\mu\\) übereinstimmt, ohne jede Nebenbedingung. In der verallgemeinerten Form bezieht sich die obere Schranke auf eine zweite, auch abzählbar unendliche Familie und hängt von deren effektiver Dimension statt von ihrer Größe ab; das macht den Satz auf reproduzierende Kern-Hilberträume anwendbar.",
     "lean.disc.p2":"Der zweite ist der Satz von Kiefer–Wolfowitz in der Form, die für Sampling-Projektionen gebraucht wird: Auf einem \\(m\\)-dimensionalen Raum beschränkter Funktionen beschränkt ein Wahrscheinlichkeitsmaß, das die Determinante der Gram-Matrix maximiert, die Maximumnorm durch die \\(L_2\\)-Norm mit der Konstante \\(\\sqrt{m+\\varepsilon}\\), auf einem kompakten Gebiet mit \\(\\sqrt{m}\\). Beide Beweise sind konstruktiv. Zu den Bausteinen, die Mathlib noch nicht enthält, gehören Sherman–Morrison für Rang-eins-Updates, das Matrix-Determinanten-Lemma und die Spur eines Operators entlang einer Hilbertbasis.",
     "lean.reg.kicker":"Bei Palomar registriert",
@@ -132,7 +136,7 @@
     "lean.bss.h":"Der Sparsification-Satz von Batson, Spielman und Srivastava",
     "lean.bss.date":"14. Oktober 2026",
     "footer.uni":"Johannes Kepler Universität Linz",
-    "footer.upd":"Zuletzt aktualisiert September 2026"
+    "footer.upd":"Zuletzt aktualisiert Oktober 2026"
   };
 </script>
 <script src="site.js"></script>
