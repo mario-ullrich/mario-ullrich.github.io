@@ -226,7 +226,7 @@
    .p-lean .proj-links .meta{color:var(--faint);font-size:.8em;font-weight:300;}
    /* page-specific: Lean identifiers, which no other page shows */
    .p-lean code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;color:var(--ink-soft);background:var(--bg-2);border:1px solid var(--line-soft);border-radius:4px;padding:1px 5px;overflow-wrap:anywhere;}
-   .p-lean .factrow .v code{display:inline-block;max-width:100%;margin:1px 0;}
+   .p-lean .stmt code{display:inline-block;max-width:100%;}
    /* the table of contents in the hero: a caption and one bullet per project */
    .p-lean .toc-title{margin-top:26px;}
    .p-lean ul.toc{margin-top:0;}
@@ -238,18 +238,27 @@
    .p-lean .lean-about{max-width:780px;margin:0;}
    .p-lean .lean-about p{font-size:.95rem;margin:0;}
    .p-lean .lean-about p + p{margin-top:8px;}
-   /* the Palomar entry of a project sits at the foot of its block, set off by a rule */
+   /* the Palomar entries of a project sit at the foot of its block, set off by a rule:
+      one kicker, then one compact entry per registered result */
    .p-lean .registry{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
-   .p-lean .registry .kicker{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 4px;}
-   .p-lean .registry h4{font-size:1.05rem;font-weight:600;margin:0 0 6px;color:var(--ink);}
-   /* one registered statement per block: the Lean name, then the formula */
-   .p-lean .stmt{display:block;}
-   .p-lean .stmt + .stmt{margin-top:6px;}
+   .p-lean .registry .kicker{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px;}
+   .p-lean .entry + .entry{margin-top:12px;}
+   /* the head line of an entry: the title of the theorem, then its registry id as a small link */
+   .p-lean .entry-head{font-size:.98rem;color:var(--ink);margin:0 0 4px;}
+   .p-lean .entry-title{font-weight:600;}
+   .p-lean .entry-id{font-size:.8rem;color:var(--accent);margin-left:8px;white-space:nowrap;}
+   .p-lean .entry-id:hover{color:var(--accent-2);}
+   /* one line per registered statement: the Lean name, linking to the declaration, then the formula */
+   .p-lean .stmt{display:block;padding-left:14px;font-size:.95rem;}
+   .p-lean .stmt + .stmt{margin-top:4px;}
+   .p-lean .stmt a:hover{text-decoration:none;}
+   .p-lean .stmt a code{color:var(--accent);}
+   .p-lean .stmt a:hover code{border-color:var(--accent);}
    .p-lean .stmt .f{font-size:.85em;margin-left:10px;white-space:nowrap;}
    .p-lean .stmt .f::before{content:"→";margin-right:7px;color:var(--faint);}
    /* on phones a formula goes under its Lean name and scrolls if it is wider than the card */
    @media(max-width:560px){
-     .p-lean .registry .factrow{flex-direction:column;gap:4px;}
+     .p-lean .stmt{padding-left:0;}
      .p-lean .stmt .f{display:block;margin:2px 0 0;white-space:normal;overflow-x:auto;}
      .p-lean .stmt .f::before{content:none;}
    }

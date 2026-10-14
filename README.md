@@ -102,18 +102,21 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   namespaced by project, `lean.snum.*` and `lean.disc.*`, so a further project takes
   its own prefix, its own id and its own item in the table of contents.
 
-  A project's *Palomar entry* is a `div.registry` at the foot of its block: the
-  kicker `lean.reg.kicker`, an `h4` titled by the theorem itself rather than by a
-  label, then the rows Entry, Registered and Statements. The kicker and the row
-  labels `lean.reg.k.*` are shared; each result has its own title and date keys,
-  `lean.maxdiff.h` and `lean.maxdiff.date`, `lean.bss.h` and `lean.bss.date`. The
-  Entry row shows the bare id linked to the permalink
-  `https://palomar-registry.org/entry?id=<ID>&version=<N>` and needs no translation.
-  On phones each formula moves under its Lean name and scrolls if it is wider than
-  the card. A project without a registered result simply has no `div.registry`.
-  Take the values from the registry record rather than the entry page, which is
-  rendered by JavaScript and arrives empty:
-  `https://data.palomar-registry.org/entries/<ID>-v<N>.json`.
+  A project's *Palomar entries* are a `div.registry` at the foot of its block: the
+  kicker `lean.reg.kicker` once, then one `div.entry` per registered result. An
+  entry is a head line `div.entry-head` with the title of the theorem
+  (`span.entry-title`, its own key such as `lean.maxdiff.h` or `lean.bss.h`) and the
+  bare id as a small link `a.entry-id` to the permalink
+  `https://palomar-registry.org/entry?id=<ID>&version=<N>`, followed by one
+  `div.stmt` per advertised theorem: its Lean name in `code`, linking to the
+  declaration in the repository at the commit the registry verified
+  (`blob/<commit>/<file>#L<line>`), then the formula in `span.f`. Only the kicker and
+  the titles are translated. On phones each formula moves under its Lean name and
+  scrolls if it is wider than the card. A project without a registered result simply
+  has no `div.registry`. Take the values from the registry record rather than the
+  entry page, which is rendered by JavaScript and arrives empty:
+  `https://data.palomar-registry.org/entries/<ID>-v<N>.json`; the line of a
+  declaration at that commit comes from `git grep -n "theorem <name>" <commit>`.
 
 - **Publication numbering.** The grouped lists on `publications.html` count
   downwards (`counter-increment: pub -1`), so after adding or removing an entry
