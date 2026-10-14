@@ -95,8 +95,8 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   that the projects are hosted on GitHub with a blueprint and a dependency graph, and
   what Palomar is. The projects follow without a section heading.
 
-  A *project* is one `div.feature` with an id inside `#projects`: an `h3` holding the
-  project name plus `a.repo` with the repository in brackets, then `p.proj-links`
+  A *project* is one `section.project` with an id, holding a `div.feature`: an `h3`
+  with the project name plus `a.repo` with the repository in brackets, then `p.proj-links`
   with the blueprint and dependency-graph links and, after a separator, `span.meta`
   with the size and the Lean version, then the prose paragraphs. Its keys are
   namespaced by project, `lean.snum.*` and `lean.disc.*`, so a further project takes

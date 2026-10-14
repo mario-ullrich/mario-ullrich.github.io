@@ -63,9 +63,9 @@
     </div>
 </div></section>
 
-<section id="projects"><div class="wrap">
+<section class="project" id="snumbers"><div class="wrap">
 <div class="reveal">
-      <div class="feature" id="snumbers">
+      <div class="feature">
         <h3><span data-i18n="lean.snum.h">s-Numbers of operators</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-SNumbers">(Lean-SNumbers)</a></h3>
         <p class="proj-links" data-i18n="lean.snum.links"><a href="https://mario-ullrich.github.io/Lean-SNumbers/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-SNumbers/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-SNumbers/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 15,000 lines, Lean 4.35.0-rc2</span></p>
         <p data-i18n="lean.snum.p1">Pietsch&#39;s axiomatic theory of s-numbers, which takes the place of the singular values on Banach spaces, where no spectral theorem is at hand. The development covers the axioms, the five classical sequences (the approximation numbers \(a_n\), the Bernstein, Gelfand and Kolmogorov numbers, and the Hilbert numbers \(h_n\)) and the inequalities between them. Its main result is the maximal difference theorem \(a_n(S)\le e(n+1)\,h_n(S)\). Since \(a_n\) is the largest s-number sequence and \(h_n\) the smallest, this single factor bounds the gap between <em>any</em> two of them, and its growth in \(n\) is order-optimal.</p>
@@ -78,7 +78,12 @@
           <div class="factrow"><span class="k" data-i18n="lean.reg.k.stmt">Statements</span><span class="v"><span class="stmt"><code>SNumbers.approximationNumber_le_mul_hilbertNumber</code><span class="f">\(a_n(S)\le \frac{(n+1)^{n+1}}{n^{n}}\,h_n(S)\)</span></span><span class="stmt"><code>SNumbers.approximationNumber_le_e_mul_hilbertNumber</code><span class="f">\(a_n(S)\le e\,(n+1)\,h_n(S)\)</span></span></span></div>
         </div>
       </div>
-      <div class="feature" id="discretization">
+    </div>
+</div></section>
+
+<section class="project" id="discretization"><div class="wrap">
+<div class="reveal">
+      <div class="feature">
         <h3><span data-i18n="lean.disc.h">Norm discretization</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-Discretization">(Lean-Discretization)</a></h3>
         <p class="proj-links" data-i18n="lean.disc.links"><a href="https://mario-ullrich.github.io/Lean-Discretization/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 8,500 lines, Lean 4.35.0-rc2</span></p>
         <p data-i18n="lean.disc.p1">Two theorems that replace a norm by finitely many point evaluations. The first is the generalized sparsification theorem of Batson, Spielman and Srivastava from a joint paper with Chkifa, Dolbeault and Krieg: for an \(m\)-dimensional space of square-integrable functions and every \(n\ge m\) there are \(n\) points and positive weights such that \(\sum_i w_i\,|f(x_i)|^2\) stays within the factors \((1\mp\sqrt{(m-1)/n})^2\) of \(\int|f|^2\,d\mu\) for every \(f\) in the space, with no side condition. In the generalized form the upper bound refers to a second family, which may be countably infinite, and depends on its effective dimension rather than its size; this is what makes the theorem applicable to reproducing kernel Hilbert spaces.</p>

@@ -232,8 +232,9 @@
    .p-lean ul.toc{margin-top:0;}
    /* the intro sits in a card, so its band can be tighter than a normal section */
    .p-lean #lean{padding:34px 0;}
-   .p-lean #projects{padding-top:40px;padding-bottom:32px;}
-   .p-lean #projects .feature:last-child{margin-bottom:0;}
+   /* each project is a section of its own, so the same rule and spacing as above the first one separate them */
+   .p-lean .project{padding:40px 0 32px;}
+   .p-lean .project .feature{margin-bottom:0;}
    .p-lean .lean-about{max-width:780px;margin:0;}
    .p-lean .lean-about p{font-size:.95rem;margin:0;}
    .p-lean .lean-about p + p{margin-top:8px;}
