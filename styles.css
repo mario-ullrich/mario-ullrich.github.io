@@ -247,6 +247,12 @@
    .p-lean .stmt + .stmt{margin-top:6px;}
    .p-lean .stmt .f{font-size:.85em;margin-left:10px;white-space:nowrap;}
    .p-lean .stmt .f::before{content:"→";margin-right:7px;color:var(--faint);}
+   /* on phones a formula goes under its Lean name and scrolls if it is wider than the card */
+   @media(max-width:560px){
+     .p-lean .registry .factrow{flex-direction:column;gap:4px;}
+     .p-lean .stmt .f{display:block;margin:2px 0 0;white-space:normal;overflow-x:auto;}
+     .p-lean .stmt .f::before{content:none;}
+   }
 
 /* service.html */
    .p-service .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
