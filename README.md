@@ -31,9 +31,10 @@ The design and the behaviour are shared, not copied:
   `p-research`, `p-pubs`, `p-cv`, `p-lean`, `p-teaching`, `p-service`,
   `p-press`, `p-contact`).
 - `site.js` — the language toggle, the fade-in observer, the e-mail
-  assembly, the point-set background, the lazy MathJax loader and the visitor
-  counter. Each page defines its own `DE` translation table in a short inline
-  script directly before loading it.
+  assembly, the point-set background, the lazy MathJax loader, the visitor
+  counter and the dependency-graph pictures of the Lean page. Each page
+  defines its own `DE` translation table in a short inline script directly
+  before loading it.
 
 A change to the shared design is therefore a change in one file.
 
@@ -101,6 +102,18 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   with the size and the Lean version, then the prose paragraphs. Its keys are
   namespaced by project, `lean.snum.*` and `lean.disc.*`, so a further project takes
   its own prefix, its own id and its own item in the table of contents.
+
+  After the links comes the *picture of the dependency graph*, an `a.depgraph` linking
+  to the project's `dep_graph_document.html`, with an empty `span.depgraph-pic` and the
+  caption `span.depgraph-cap` (key `lean.graph.cap`). The picture is drawn live: when
+  it comes near the viewport, `site.js` fetches the linked page, takes the graph source
+  from its ``.renderDot(`…`)`` call and lays it out with the Graphviz that the blueprint
+  itself publishes in `js/`, so it always shows the current graph in the layout of the
+  full page, with the labels hidden. The link carries `hidden` in the HTML and is shown
+  by the script, so without JavaScript, or when the blueprint cannot be reached, the
+  block simply has no picture. On wide screens it floats to the right of the prose; on
+  narrow ones it stands on its own line, at most 260 px wide, so about the size it
+  has beside the text.
 
   A project's *Palomar entries* are a `div.registry` at the foot of its block: the
   kicker `lean.reg.kicker` once, then one `div.entry` per registered result. An

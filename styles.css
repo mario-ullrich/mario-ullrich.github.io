@@ -234,13 +234,34 @@
    .p-lean #lean{padding:34px 0;}
    /* each project is a section of its own, so the same rule and spacing as above the first one separate them */
    .p-lean .project{padding:40px 0 32px;}
-   .p-lean .project .feature{margin-bottom:0;}
+   .p-lean .project .feature{margin-bottom:0;display:flow-root;}
    .p-lean .lean-about{max-width:780px;margin:0;}
    .p-lean .lean-about p{font-size:.95rem;margin:0;}
    .p-lean .lean-about p + p{margin-top:8px;}
+   /* the live picture of a project's dependency graph, drawn by site.js, beside the prose
+      and linking to the full graph; labels are hidden, as they would be unreadably small,
+      and the lines keep a fixed width however far the graph is scaled down */
+   .p-lean .depgraph{float:right;width:34%;margin:6px 0 10px 26px;color:var(--muted);}
+   .p-lean .depgraph[hidden]{display:none;}
+   .p-lean .depgraph:hover{text-decoration:none;color:var(--accent);}
+   .p-lean .depgraph-pic{display:block;aspect-ratio:3/2;padding:8px;background:#fff;border:1px solid var(--line);border-radius:8px;transition:border-color .2s ease;}
+   .p-lean .depgraph:hover .depgraph-pic{border-color:var(--accent);}
+   .p-lean .depgraph-pic svg{display:block;width:100%;height:100%;opacity:0;transition:opacity .5s ease;}
+   .p-lean .depgraph.ready .depgraph-pic svg{opacity:1;}
+   .p-lean .depgraph-pic text{display:none;}
+   .p-lean .depgraph-pic path,.p-lean .depgraph-pic polygon,.p-lean .depgraph-pic ellipse{vector-effect:non-scaling-stroke;}
+   .p-lean .depgraph-pic .node ellipse,.p-lean .depgraph-pic .node polygon,.p-lean .depgraph-pic .cluster path,.p-lean .depgraph-pic .cluster polygon{stroke-width:.8px;}
+   .p-lean .depgraph-pic .edge path{stroke:var(--faint);stroke-width:.6px;}
+   .p-lean .depgraph-pic .edge polygon{stroke:var(--faint);fill:var(--faint);stroke-width:.6px;}
+   .p-lean .depgraph-cap{display:block;margin-top:6px;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;text-align:center;}
+   /* on narrow screens the picture stands on its own line between the links and the prose,
+      at about the size it has beside the text */
+   @media(max-width:700px){
+     .p-lean .depgraph{float:none;display:block;width:100%;max-width:260px;margin:12px 0 14px;}
+   }
    /* the Palomar entries of a project sit at the foot of its block, set off by a rule:
       one kicker, then one compact entry per registered result */
-   .p-lean .registry{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
+   .p-lean .registry{clear:both;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
    .p-lean .registry .kicker{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px;}
    .p-lean .entry + .entry{margin-top:12px;}
    /* the head line of an entry: the title of the theorem, then its registry id as a small link */
