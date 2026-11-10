@@ -214,6 +214,7 @@
    .p-cv #cv .cols{display:block;}
    .p-cv #cv .reveal{margin-bottom:42px;}
    .p-cv #cv .micro-h{font-size:clamp(1.2rem,2vw,1.6rem);margin:36px 0 18px;}
+   .p-cv #cv .talks-link{margin:-12px 0 16px;}
 
 /* lean.html */
    .p-lean .feature h3 a.repo{font-size:.82rem;font-weight:400;}

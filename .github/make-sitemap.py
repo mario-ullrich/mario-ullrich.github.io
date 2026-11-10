@@ -50,11 +50,12 @@ def location(path: Path) -> str:
 
 
 def pages() -> list[Path]:
-    """Every published file worth listing: the pages, then the CV as a PDF."""
+    """Every published file worth listing: the pages, then the PDFs under docs/
+    (the CV and the slides of talks)."""
     html = sorted(p for p in ROOT.glob("*.html") if p.name not in EXCLUDED)
     index = [p for p in html if p.name == "index.html"]
     rest = [p for p in html if p.name != "index.html"]
-    return index + rest + sorted(ROOT.glob("docs/*.pdf"))
+    return index + rest + sorted(ROOT.glob("docs/**/*.pdf"))
 
 
 def main() -> None:

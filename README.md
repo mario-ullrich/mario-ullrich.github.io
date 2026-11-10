@@ -15,6 +15,7 @@ paths, so they must stay together in the same folder:
 
 - `index.html` — home (News + About + Contact, with an "At a glance" card)
 - `research.html` — research topics and most important results
+- `talks.html` — slides of talks, grouped by topic
 - `publications.html` — selected publications, preprints, full list, theses
 - `lean.html` — the Lean 4 / Mathlib formalization projects and their entries in
   the Palomar registry
@@ -28,7 +29,7 @@ The design and the behaviour are shared, not copied:
 
 - `styles.css` — the whole stylesheet. Rules that apply to one page only sit
   at the bottom, scoped by the class its `<body>` carries (`p-home`,
-  `p-research`, `p-pubs`, `p-cv`, `p-lean`, `p-teaching`, `p-service`,
+  `p-research`, `p-talks`, `p-pubs`, `p-cv`, `p-lean`, `p-teaching`, `p-service`,
   `p-press`, `p-contact`).
 - `site.js` — the language toggle, the fade-in observer, the e-mail
   assembly, the point-set background, the lazy MathJax loader, the visitor
@@ -38,7 +39,8 @@ The design and the behaviour are shared, not copied:
 
 A change to the shared design is therefore a change in one file.
 
-The full CV as a PDF lives in `docs/`, published alongside the pages.
+The full CV as a PDF lives in `docs/`, the slides of talks in `docs/talks/`, both
+published alongside the pages.
 
 ## Editing notes
 
@@ -77,7 +79,8 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   appended) count as one page. A new page needs that line too, pointing at
   itself.
 
-  `sitemap.xml` lists every page with the date it last changed and is generated
+  `sitemap.xml` lists every page and every PDF under `docs/` with the date it last
+  changed and is generated
   from the git history, never edited by hand: the workflow
   `.github/workflows/sitemap.yml` rewrites and commits it whenever a page or the
   CV changes on `main`. To refresh it locally, run `python .github/make-sitemap.py`.
@@ -131,6 +134,13 @@ The full CV as a PDF lives in `docs/`, published alongside the pages.
   `https://data.palomar-registry.org/entries/<ID>-v<N>.json`; the line of a
   declaration at that commit comes from `git grep -n "theorem <name>" <commit>`.
 
+- **The Talks page.** `talks.html` shows the slides of talks, one block per topic:
+  a heading `h3.micro-h` (key `talks.t.*`) and a `ul.timeline` with one `li.tl` per
+  talk. An entry has the year in `span.yr`, the title in `strong` (English in both
+  languages), the event and place in `span.sub` and the link `a.res-ref` to the PDF
+  (key `talks.pdf`, shared by all links). A topic holds one or two talks, each in
+  its most recent version; variants of the same talk are not listed separately. The
+  PDFs live in `docs/talks/` and are named `<YYYY-MM>-<topic>.pdf`. The CV's list of talks links to this page.
 - **Publication numbering.** The grouped lists on `publications.html` count
   downwards (`counter-increment: pub -1`), so after adding or removing an entry
   the `counter-reset` value — in the CSS *and* in the inline `style` on the `<ol>`

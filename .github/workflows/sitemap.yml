@@ -1,6 +1,6 @@
 # Keep sitemap.xml in step with the pages.
 #
-# Whenever a page or the CV changes on `main`, this regenerates the file from
+# Whenever a page or a PDF under docs/ changes on `main`, this regenerates the file from
 # the git history and commits it back, so the <lastmod> dates can never fall
 # behind.  Rewriting sitemap.xml touches none of the watched paths, so the
 # commit does not start the job again.
