@@ -2,42 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mario-ullrich.github.io/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/contact.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/cv.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/lean.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/press.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/publications.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/research.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/service.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/talks.html</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/teaching.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
   <url>
     <loc>https://mario-ullrich.github.io/docs/CV-2026-05.pdf</loc>
     <lastmod>2026-08-28</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2015-05-random-cluster.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2017-07-integration-survey.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2019-08-discrepancy-dispersion.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2023-11-integration-curse.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2024-11-adaption-randomization.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2025-05-measurements.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2026-05-optimal-sampling.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2026-07-neural-networks.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2026-09-s-numbers.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://mario-ullrich.github.io/docs/talks/2026-10-constructive-sampling.pdf</loc>
+    <lastmod>2026-11-10</lastmod>
   </url>
 </urlset>
