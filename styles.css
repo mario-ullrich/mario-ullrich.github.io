@@ -205,7 +205,7 @@
    .p-home .hero-actions--secondary .btn:hover{background:#fff;border-color:var(--accent);color:var(--accent);}
 
 /* publications.html */
-   .p-pubs ol.pubs.desc-preprints{counter-reset:pub 4;}
+   .p-pubs ol.pubs.desc-preprints{counter-reset:pub 6;}
    .p-pubs ol.pubs.desc-journals{counter-reset:pub 48;}
    .p-pubs ol.pubs.desc-theses{counter-reset:pub 4;}
    .p-pubs ol.pubs.desc-preprints li,.p-pubs ol.pubs.desc-journals li,.p-pubs ol.pubs.desc-theses li{counter-increment:pub -1;}
