@@ -17,4 +17,4 @@ __pycache__/
 
 # Note: unlike the Lean repositories, *.pdf is deliberately NOT ignored here —
 # docs/CV-2026-05.pdf is part of the site and is linked from cv.html, and the
-# slides in docs/talks/ are linked from talks.html.
+# slides in docs/talks/ are linked from slides.html.
