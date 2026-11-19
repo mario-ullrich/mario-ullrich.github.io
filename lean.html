@@ -47,6 +47,7 @@
     <ul class="bullets toc">
       <li><a href="#snumbers" data-i18n="lean.toc.snum">s-Numbers of operators</a></li>
       <li><a href="#discretization" data-i18n="lean.toc.disc">Norm discretization</a></li>
+      <li><a href="#contmeasurements" data-i18n="lean.toc.cont">Adaptive continuous measurements</a></li>
     </ul>
   </div>
 </header>
@@ -104,10 +105,22 @@
     </div>
 </div></section>
 
+<section class="project" id="contmeasurements"><div class="wrap">
+<div class="reveal">
+      <div class="feature">
+        <h3><span data-i18n="lean.cont.h">Adaptive continuous measurements</span> <a class="repo" href="https://github.com/mario-ullrich/Lean-ContMeasurements">(Lean-ContMeasurements)</a></h3>
+        <p class="proj-links" data-i18n="lean.cont.links"><a href="https://mario-ullrich.github.io/Lean-ContMeasurements/">Blueprint</a> (as <a href="https://mario-ullrich.github.io/Lean-ContMeasurements/blueprint.pdf">pdf</a>)<span class="sep">&#183;</span><a href="https://mario-ullrich.github.io/Lean-ContMeasurements/graph/flow.html">Dependency graph</a><span class="sep">&#183;</span><span class="meta">about 5,300 lines, Lean 4.36.0</span></p>
+        <a class="depgraph" href="https://mario-ullrich.github.io/Lean-ContMeasurements/graph/flow.html" data-dot="https://mario-ullrich.github.io/Lean-ContMeasurements/dep_graph_document_old.html" hidden><span class="depgraph-pic" aria-hidden="true"></span><span class="depgraph-cap" data-i18n="lean.graph.cap">Dependency graph</span></a>
+        <p data-i18n="lean.cont.p1">How many real numbers must one compute to recover a vector of \(\mathbb{R}^d\) up to a given error, when each is a continuous function of the vector and may be chosen after the previous values are seen? \(\lceil\log_2 d\rceil+1\) such measurements suffice for every accuracy (with Krieg and Novak, <a href="https://doi.org/10.1090/proc/17901">Proc. AMS</a>), and \(\lceil\log_2(d+1)\rceil\) are necessary (<a href="https://arxiv.org/abs/2610.33781">arXiv</a>). The count is thus known up to one, and exactly when \(d\) is a power of two.</p>
+        <p data-i18n="lean.cont.p2">The lower bound rests on the Borsuk–Ulam theorem, which Mathlib does not yet carry; the project proves it combinatorially, through Tucker&#39;s lemma on the Kuhn triangulation of the cube.</p>
+      </div>
+    </div>
+</div></section>
+
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated October 2026</span></div>
+  <div class="wrap">© <span id="yr"></span> Mario Ullrich · <span data-i18n="footer.uni">Johannes Kepler University Linz</span> · <span data-i18n="footer.upd">Last updated November 2026</span></div>
 </footer>
 
 <script>
@@ -126,6 +139,7 @@
     "lean.toc.h":"Projekte",
     "lean.toc.snum":"s-Zahlen von Operatoren",
     "lean.toc.disc":"Diskretisierung von Normen",
+    "lean.toc.cont":"Adaptive stetige Messungen",
     "lean.about.h":"Was ist Lean?",
     "lean.lead1":"Eine Formalisierung formuliert Definitionen und Sätze in der abhängigen Typentheorie von <a href=\"https://lean-lang.org/\">Lean 4</a> und gibt ihre Beweise als Terme dieser Theorie an. Ob ein solcher Term ein Beweis ist, entscheidet ein kleiner Kern, der jeden Schritt nachrechnet, und die Axiome, auf die sich ein fertiger Beweis stützt, lassen sich genau angeben. <a href=\"https://leanprover-community.github.io/\">Mathlib</a>, die Bibliothek der Lean-Gemeinschaft, liefert die Grundlagen aus Analysis, linearer Algebra und Topologie und wird laufend erweitert.",
     "lean.lead2":"Die Projekte liegen auf <a href=\"https://github.com/mario-ullrich\">GitHub</a>. Zu jedem gehört ein <strong>Blueprint</strong>, eine lesbare Darstellung der Mathematik mit Verweisen in den Lean-Code, und ein <strong>Abhängigkeitsgraph</strong>, der zeigt, welche Ergebnisse auf welchen beruhen.",
@@ -138,12 +152,16 @@
     "lean.disc.links":"<a href=\"https://mario-ullrich.github.io/Lean-Discretization/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-Discretization/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-Discretization/dep_graph_document.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 8.500 Zeilen, Lean 4.35.0-rc2</span>",
     "lean.disc.p1":"Zwei Sätze, die eine Norm durch endlich viele Funktionswerte ersetzen. Der erste ist der verallgemeinerte Sparsification-Satz von Batson, Spielman und Srivastava aus einer gemeinsamen Arbeit mit Chkifa, Dolbeault und Krieg: Für einen \\(m\\)-dimensionalen Raum quadratintegrierbarer Funktionen und jedes \\(n\\ge m\\) gibt es \\(n\\) Punkte und positive Gewichte, sodass \\(\\sum_i w_i\\,|f(x_i)|^2\\) für jedes \\(f\\) aus dem Raum bis auf die Faktoren \\((1\\mp\\sqrt{(m-1)/n})^2\\) mit \\(\\int|f|^2\\,d\\mu\\) übereinstimmt, ohne jede Nebenbedingung. In der verallgemeinerten Form bezieht sich die obere Schranke auf eine zweite, auch abzählbar unendliche Familie und hängt von deren effektiver Dimension statt von ihrer Größe ab; das macht den Satz auf reproduzierende Kern-Hilberträume anwendbar.",
     "lean.disc.p2":"Der zweite ist der Satz von Kiefer–Wolfowitz in der Form, die für Sampling-Projektionen gebraucht wird: Auf einem \\(m\\)-dimensionalen Raum beschränkter Funktionen beschränkt ein Wahrscheinlichkeitsmaß, das die Determinante der Gram-Matrix maximiert, die Maximumnorm durch die \\(L_2\\)-Norm mit der Konstante \\(\\sqrt{m+\\varepsilon}\\), auf einem kompakten Gebiet mit \\(\\sqrt{m}\\). Beide Beweise sind konstruktiv. Zu den Bausteinen, die Mathlib noch nicht enthält, gehören Sherman–Morrison für Rang-eins-Updates, das Matrix-Determinanten-Lemma und die Spur eines Operators entlang einer Hilbertbasis.",
+    "lean.cont.h":"Adaptive stetige Messungen",
+    "lean.cont.links":"<a href=\"https://mario-ullrich.github.io/Lean-ContMeasurements/\">Blueprint</a> (als <a href=\"https://mario-ullrich.github.io/Lean-ContMeasurements/blueprint.pdf\">PDF</a>)<span class=\"sep\">&#183;</span><a href=\"https://mario-ullrich.github.io/Lean-ContMeasurements/graph/flow.html\">Abhängigkeitsgraph</a><span class=\"sep\">&#183;</span><span class=\"meta\">rund 5.300 Zeilen, Lean 4.36.0</span>",
+    "lean.cont.p1":"Wie viele reelle Zahlen muss man berechnen, um einen Vektor des \\(\\mathbb{R}^d\\) bis auf einen vorgegebenen Fehler zu bestimmen, wenn jede stetig vom Vektor abhängt und nach den bisherigen Werten gewählt werden darf? \\(\\lceil\\log_2 d\\rceil+1\\) solcher Messungen genügen für jede Genauigkeit (mit Krieg und Novak, <a href=\"https://doi.org/10.1090/proc/17901\">Proc. AMS</a>), und \\(\\lceil\\log_2(d+1)\\rceil\\) sind nötig (<a href=\"https://arxiv.org/abs/2610.33781\">arXiv</a>). Die Anzahl ist damit bis auf eins bekannt, und genau, wenn \\(d\\) eine Zweierpotenz ist.",
+    "lean.cont.p2":"Die untere Schranke beruht auf dem Satz von Borsuk–Ulam, den Mathlib noch nicht enthält; das Projekt beweist ihn kombinatorisch, über das Lemma von Tucker auf der Kuhn-Triangulierung des Würfels.",
     "lean.graph.cap":"Abhängigkeitsgraph",
     "lean.reg.kicker":"Bei Palomar registriert",
     "lean.maxdiff.h":"Der Satz über die maximale Differenz für s-Zahlen",
     "lean.bss.h":"Der Sparsification-Satz von Batson, Spielman und Srivastava",
     "footer.uni":"Johannes Kepler Universität Linz",
-    "footer.upd":"Zuletzt aktualisiert Oktober 2026"
+    "footer.upd":"Zuletzt aktualisiert November 2026"
   };
 </script>
 <script src="site.js"></script>

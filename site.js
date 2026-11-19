@@ -42,7 +42,8 @@
 
 /* Live pictures of the dependency graphs on the Lean page. Each a.depgraph
    links to a blueprint's dep_graph_document.html, which carries its graph as
-   Graphviz source inside .renderDot(`...`). We fetch that page, cut out the
+   Graphviz source inside .renderDot(`...`); a link to another graph page names
+   that leanblueprint page in data-dot instead. We fetch that page, cut out the
    source and lay it out with the Graphviz the blueprint itself ships
    (js/hpcc.min.js with js/graphvizlib.wasm), so the picture always shows the
    graph as currently published, laid out exactly as on the full page. The
@@ -71,8 +72,9 @@
     return lib;
   }
   function draw(a) {
-    var base = a.href.replace(/[^\/]*$/, '');
-    var page = fetch(a.href).then(function (r) { return r.ok ? r.text() : Promise.reject(); });
+    var src = a.getAttribute('data-dot') || a.href;
+    var base = src.replace(/[^\/]*$/, '');
+    var page = fetch(src).then(function (r) { return r.ok ? r.text() : Promise.reject(); });
     return Promise.all([page, loadGraphviz(base)]).then(function (res) {
       var m = res[0].match(/\.renderDot\(`([\s\S]*?)`\)/);
       if (!m) throw new Error('no graph');
